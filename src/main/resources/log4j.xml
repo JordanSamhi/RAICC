@@ -42,7 +42,7 @@
         </filter>
     </appender>
     <logger name="lu.uni.indirecticcresolver" additivity="false">
-        <level value="OFF"/>
+        <level value="INFO"/>
         <appender-ref ref="STDOUT_DEBUG"/>
         <appender-ref ref="STDOUT_INFO"/>
         <appender-ref ref="STDOUT_WARN"/>

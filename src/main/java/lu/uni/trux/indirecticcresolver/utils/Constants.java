@@ -1,5 +1,7 @@
 package lu.uni.trux.indirecticcresolver.utils;
 
+import java.io.File;
+
 public class Constants {
 
 	/**
@@ -35,4 +37,10 @@ public class Constants {
 	public static final String START_ACTIVITY = "void startActivity(android.content.Intent)";
 	public static final String START_SERVICE = "void startService(android.content.Intent)";
 	public static final String SEND_BROADCAST = "void sendBroadcast(android.content.Intent)";
+	
+	
+	/**
+	 * Directories
+	 */
+	public static final String TARGET_TMP_DIR = String.format("%s%s%s", System.getProperty("java.io.tmpdir"), File.separator, "indirectIccResolver");
 }

@@ -78,8 +78,7 @@ public class PreliminaryAnalysis extends Ic3Analysis {
 												b.getUnits().insertAfter(unitsToAdd, stmt);
 												b.validate();
 												Options.v().set_output_format(Options.output_format_dex);
-												// TODO dynamic tmp directory
-												Options.v().set_output_dir("/tmp/");
+												Options.v().set_output_dir(Constants.TARGET_TMP_DIR);
 												Options.v().set_force_overwrite(true);
 												PackManager.v().writeOutput();
 											}
@@ -168,5 +167,4 @@ public class PreliminaryAnalysis extends Ic3Analysis {
 		}
 		return false;
 	}
-
 }
