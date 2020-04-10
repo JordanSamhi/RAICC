@@ -20,7 +20,7 @@ mvn clean install
 
 <pre>
 java -jar indirectIccResolver/target/indirectIccResolver-0.1-jar-with-dependencies.jar <i>options</i>
-pre>
+<pre>
 
 ## Built With
 
