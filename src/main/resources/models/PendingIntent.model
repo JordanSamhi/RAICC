@@ -147,6 +147,15 @@ class android.app.PendingIntent {
     argument intent2;
     5: type String, prop "valueType": "permission";
   }
+  
+  query <android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent,android.app.PendingIntent$OnFinished,android.os.Handler,java.lang.String,android.os.Bundle)> {
+    argument pendingIntentBase;
+  }
+  
+  query <android.app.PendingIntent: void send(int,android.content.Intent,android.app.PendingIntent$OnFinished,android.os.Handler)> {
+    argument pendingIntentBase;
+  }
+  
   query <android.app.PendingIntent: void send(int,android.app.PendingIntent$OnFinished,android.os.Handler)> {
     argument pendingIntentBase;
   }

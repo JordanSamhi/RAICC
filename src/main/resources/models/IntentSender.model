@@ -1,0 +1,78 @@
+/*
+ * Copyright (C) 2020 Jordan Samhi
+ * University of Luxembourg - Interdisciplinary Centre for
+ * Security Reliability and Trust (SnT) - TruX -
+ * All rights reserved
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 2.1 of the
+ * License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Lesser Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Lesser Public
+ * License along with this program.  If not, see
+ * <http://www.gnu.org/licenses/lgpl-2.1.html>.
+ */
+
+class android.content.IntentSender {
+  String targetType(1);
+  String creatorPackage(1);
+  String action(1);
+  Set<String> categories;
+  String package(1);
+  String clazz(1);
+  Set<int> flags;
+  Set<String> extras;
+  String dataType;
+
+  String scheme;
+  String ssp;
+  String fragment;
+  String uri;
+  String path;
+  String uriQuery;
+  String authority;
+  Set<String> appendedPaths;
+  Set<String> appendedQueries;
+
+  mod gen <android.app.PendingIntent: android.content.IntentSender getIntentSender()> {   
+    -1: replace targetType, type android.app.PendingIntent:targetType;
+    -1: replace creatorPackage, type android.app.PendingIntent:creatorPackage;
+    -1: replace action, type android.app.PendingIntent:action;
+    -1: replace categories, type android.app.PendingIntent:categories;
+    -1: replace package, type android.app.PendingIntent:package;
+    -1: replace clazz, type android.app.PendingIntent:clazz;
+    -1: replace flags, type android.app.PendingIntent:flags;
+    -1: replace extras, type android.app.PendingIntent:extras;
+    -1: replace dataType, type android.app.PendingIntent:dataType;
+    -1: replace scheme, type android.app.PendingIntent:scheme;
+    -1: replace ssp, type android.app.PendingIntent:ssp;
+    -1: replace fragment, type android.app.PendingIntent:fragment;
+    -1: replace uri, type android.app.PendingIntent:uri;
+    -1: replace path, type android.app.PendingIntent:path;
+    -1: replace uriQuery, type android.app.PendingIntent:uriQuery;
+    -1: replace authority, type android.app.PendingIntent:authority;
+    -1: replace appendedPaths, type android.app.PendingIntent:appendedPaths;
+    -1: replace appendedQueries, type android.app.PendingIntent:appendedQueries;
+  }
+  
+  argument intentSender0 = 0: type android.content.IntentSender, prop "valueType": "intentSender";
+  argument intentSenderBase = -1: type android.content.IntentSender, prop "valueType": "intentSender";
+  
+  query <android.content.IntentSender$OnFinished: void onSendFinished(android.content.IntentSender,android.content.Intent,int,java.lang.String,android.os.Bundle)> {
+    argument intentSender0;
+  }
+  
+  query <android.content.IntentSender: void sendIntent(android.content.Context,int,android.content.Intent,android.content.IntentSender$OnFinished,android.os.Handler)> {
+    argument intentSenderBase;
+  }
+  
+  query <android.content.IntentSender: void sendIntent(android.content.Context,int,android.content.Intent,android.content.IntentSender$OnFinished,android.os.Handler,java.lang.String)> {
+    argument intentSenderBase;
+  }
+}

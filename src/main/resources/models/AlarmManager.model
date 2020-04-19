@@ -1,4 +1,4 @@
-/*-
+/*
  * Copyright (C) 2020 Jordan Samhi
  * University of Luxembourg - Interdisciplinary Centre for
  * Security Reliability and Trust (SnT) - TruX -
@@ -20,9 +20,43 @@
  */
 
 class android.app.AlarmManager {
-  argument pendingIntent = 2: type android.app.PendingIntent, prop "valueType": "pendingIntent";
+  argument pendingIntent1 = 1: type android.app.PendingIntent, prop "valueType": "pendingIntent";
+  argument pendingIntent2 = 2: type android.app.PendingIntent, prop "valueType": "pendingIntent";
+  argument pendingIntent3 = 3: type android.app.PendingIntent, prop "valueType": "pendingIntent";
   
   query <android.app.AlarmManager: void set(int,long,android.app.PendingIntent)> {
-    argument pendingIntent;
+    argument pendingIntent2;
+  }
+  
+  query <android.app.AlarmManager: void setAlarmClock(android.app.AlarmManager$AlarmClockInfo,android.app.PendingIntent)> {
+  	argument pendingIntent1;
+  }
+  
+  query <android.app.AlarmManager: void setAndAllowWhileIdle(int,long,android.app.PendingIntent)> {
+  	argument pendingIntent2;
+  }
+  
+  query <android.app.AlarmManager: void setExactAndAllowWhileIdle(int,long,android.app.PendingIntent)> {
+  	argument pendingIntent2;
+  }
+  
+  query <android.app.AlarmManager: void setExact(int,long,android.app.PendingIntent)> {
+  	argument pendingIntent2;
+  }
+  
+  query <androidx.core.app.AlarmManagerCompat: void setExact(android.app.AlarmManager,int,long,android.app.PendingIntent)> {
+  	argument pendingIntent2;
+  }
+  
+  query <android.app.AlarmManager: void setInexactRepeating(int,long,long,android.app.PendingIntent)> {
+  	argument pendingIntent3;
+  }
+  
+  query <android.app.AlarmManager: void setRepeating(int,long,long,android.app.PendingIntent)> {
+  	argument pendingIntent3;
+  }
+  
+  query <android.app.AlarmManager: void setWindow(int,long,long,android.app.PendingIntent)> {
+  	argument pendingIntent3;
   }
 }
