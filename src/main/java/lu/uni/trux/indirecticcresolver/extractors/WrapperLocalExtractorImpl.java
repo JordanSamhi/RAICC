@@ -4,15 +4,15 @@ import soot.SootMethod;
 import soot.Value;
 import soot.jimple.InvokeExpr;
 
-public abstract class PendingIntentLocalExtractorImpl implements PendingIntentLocalExtractor {
-	private PendingIntentLocalExtractorImpl next;
+public abstract class WrapperLocalExtractorImpl implements WrapperLocalExtractor {
+	private WrapperLocalExtractorImpl next;
 
-	public PendingIntentLocalExtractorImpl(PendingIntentLocalExtractorImpl next) {
+	public WrapperLocalExtractorImpl(WrapperLocalExtractorImpl next) {
 		this.next = next;
 	}
 	
 	@Override
-	public Value extractPendingIntentLocal(InvokeExpr inv) {
+	public Value extractWrapperLocal(InvokeExpr inv) {
 		Value v = this.extract(inv);
 		
 		if(v != null) {

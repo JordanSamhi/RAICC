@@ -22,6 +22,7 @@ public class Constants {
 	 */
 	public static final String ANDROID_APP_ALARMMANAGER = "android.app.AlarmManager";
 	public static final String ANDROID_CONTENT_CONTEXT = "android.content.Context";
+	public static final String ANDROID_APP_ACTIVITY = "android.app.Activity";
 	
 	/**
 	 * Method signatures
@@ -30,6 +31,7 @@ public class Constants {
 	public static final String ANDROID_APP_PENDING_INTENT_GET_ACTIVITY = "<android.app.PendingIntent: android.app.PendingIntent getActivity(android.content.Context,int,android.content.Intent,int)>";
 	public static final String ANDROID_APP_PENDING_INTENT_GET_SERVICE = "<android.app.PendingIntent: android.app.PendingIntent getService(android.content.Context,int,android.content.Intent,int)>";
 	public static final String ANDROID_APP_PENDING_INTENT_GET_BROADCAST = "<android.app.PendingIntent: android.app.PendingIntent getBroadcast(android.content.Context,int,android.content.Intent,int)>";
+	public static final String ANDROID_APP_PENDING_INTENT_GET_INTENTSENDER = "<android.app.PendingIntent: android.content.IntentSender getIntentSender()>";
 
 	/**
 	 * Method subsignatures
@@ -37,6 +39,7 @@ public class Constants {
 	public static final String START_ACTIVITY = "void startActivity(android.content.Intent)";
 	public static final String START_SERVICE = "void startService(android.content.Intent)";
 	public static final String SEND_BROADCAST = "void sendBroadcast(android.content.Intent)";
+	public static final String START_ACTIVITY_FOR_RESULT = "void startActivityForResult(android.content.Intent,int)";
 	
 	
 	/**

@@ -2,9 +2,9 @@ package lu.uni.trux.indirecticcresolver.extractors;
 
 import lu.uni.trux.indirecticcresolver.utils.Constants;
 
-public class PILEAndroidAppAlarmManagerSet extends PendingIntentLocalExtractorImpl {
+public class WAndroidAppAlarmManagerSet extends WrapperLocalExtractorImpl {
 
-	public PILEAndroidAppAlarmManagerSet(PendingIntentLocalExtractorImpl next) {
+	public WAndroidAppAlarmManagerSet(WrapperLocalExtractorImpl next) {
 		super(next);
 	}
 
