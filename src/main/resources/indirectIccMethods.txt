@@ -29,7 +29,7 @@
 <android.media.session.MediaSession: void setSessionActivity(android.app.PendingIntent)>|0|p:p
 <android.net.ConnectivityManager: void registerNetworkCallback(android.net.NetworkRequest,android.app.PendingIntent)>|0|p:p
 <android.net.ConnectivityManager: void requestNetwork(android.net.NetworkRequest,android.app.PendingIntent)>|0|p:p
-<android.net.sip.sipmanager: open(android.net.sip.SipProfile,android.app.PendingIntent,android.net.sip.SipRegistrationListener)>|0|p:p
+<android.net.sip.sipmanager: void open(android.net.sip.SipProfile,android.app.PendingIntent,android.net.sip.SipRegistrationListener)>|0|p:p
 <android.net.VpnService.Builder: android.net.VpnService.Builder setConfigureIntent(android.app.PendingIntent)>|0|p:p
 <android.nfc.NfcAdapter: void enableForegroundDispatch(android.app.Activity,android.app.PendingIntent,android.content.IntentFilter[],java.lang.String[][])>|0|p:p
 <android.print.PrinterInfo.Builder: android.print.PrinterInfo.Builder setInfoIntent(android.app.PendingIntent)>|0|p:p
@@ -50,8 +50,8 @@
 <android.telephony.SmsManager: void injectSmsPdu(byte[],java.lang.String,android.app.PendingIntent)>|0|p:p
 <android.telephony.SmsManager: void sendDataMessage(java.lang.String,java.lang.String,short,byte[],android.app.PendingIntent,android.app.PendingIntent)>|0|p:p
 <android.telephony.SmsManager: void sendMultimediaMessage(android.content.Context,android.net.Uri,java.lang.String,android.os.Bundle,android.app.PendingIntent)>|0|p:p
-<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)><android.app.AlarmManager: void setExactAndAllowWhileIdle(int,long,android.app.PendingIntent)>|0|p:p
-<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)><android.app.AlarmManager: void setExactAndAllowWhileIdle(int,long,android.app.PendingIntent,long)>|0|p:p
+<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>|0|p:p
+<android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>|0|p:p
 <android.telephony.SmsManager: void sendTextMessageWithoutPersisting(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)>|0|p:p
 <android.widget.RemoteViews: void setOnClickPendingIntent(int,android.app.PendingIntent)>|0|p:p
 <android.widget.RemoteViews: void setPendingIntentTemplate(int,android.app.PendingIntent)>|0|p:p
@@ -70,7 +70,7 @@
 <androidx.core.app.NotificationCompat$BubbleMetadata$Builder: androidx.core.app.NotificationCompat$BubbleMetadata$Builder setIntent(android.app.PendingIntent)>|0|p:p
 <androidx.core.app.NotificationCompat$BubbleMetadata: void <init>(android.app.PendingIntent,android.app.PendingIntent,androidx.core.graphics.drawable.IconCompat,int,int,int)>|0|p:p
 <androidx.core.app.NotificationCompat$BubbleMetadata: void <init>(android.app.PendingIntent,android.app.PendingIntent,androidx.core.graphics.drawable.IconCompat,int,int,int,androidx.core.app.NotificationCompat$1)>|0|p:p
-<androidx.core.app.NotificationCompat$Builder: androidx.core.app.NotificationCompat$Builder addAction(int,java.lang.CharSequence,android.app.PendingIntent)|0|p:p
+<androidx.core.app.NotificationCompat$Builder: androidx.core.app.NotificationCompat$Builder addAction(int,java.lang.CharSequence,android.app.PendingIntent)>|0|p:p
 <androidx.core.app.NotificationCompat$CarExtender$UnreadConversation: void <init>(java.lang.String[],androidx.core.app.RemoteInput,android.app.PendingIntent,android.app.PendingIntent,java.lang.String[],long)>|0|p:p
 <androiid.app.Notification: void setLatestEventInfo(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,android.app.PendingIntent)>|0|p:p
 <com.google.android.gms.location.ActivityRecognitionApi: com.google.android.gms.common.api.PendingResult requestActivityUpdates(com.google.android.gms.common.api.GoogleApiClient,long,android.app.PendingIntent)>|0|p:p
