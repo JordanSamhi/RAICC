@@ -13,6 +13,7 @@ git clone https://github.com/JordanSamhi/indirectIccResolver.git
 <pre>
 cd indirectIccResolver
 mvn clean install:install-file -Dfile=libs/ic3-0.2.1-full.jar -DgroupId=edu.psu.cse.siis -DartifactId=ic3 -Dversion=0.2.1 -Dpackaging=jar
+mvn clean install:install-file -Dfile=libs/preprocessIntentSender-0.1.jar -DgroupId=lu.uni.trux -DartifactId=preprocessIntentSender -Dversion=0.1 -Dpackaging=jar
 mvn clean install
 </pre>
 
