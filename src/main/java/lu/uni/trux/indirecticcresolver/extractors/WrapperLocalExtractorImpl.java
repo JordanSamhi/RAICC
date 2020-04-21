@@ -23,7 +23,7 @@ public abstract class WrapperLocalExtractorImpl implements WrapperLocalExtractor
 		if(v != null) {
 			return v;
 		}else if(this.next != null) {
-			return this.next.extract(inv);
+			return this.next.extractWrapperLocal(inv);
 		}else {
 			return null;
 		}

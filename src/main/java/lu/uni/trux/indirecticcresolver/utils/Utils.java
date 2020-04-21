@@ -7,8 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import lu.uni.trux.indirecticcresolver.exceptions.MethodNotFoundException;
-import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam2;
 import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorImpl;
+import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam0;
+import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam1;
+import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam2;
+import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam3;
+import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam4;
 import soot.Body;
 import soot.Local;
 import soot.Scene;
@@ -30,7 +34,11 @@ public class Utils {
 		if(stmt instanceof InvokeStmt) {
 			InvokeExpr invExpr = ((InvokeStmt)stmt).getInvokeExpr();
 			SootMethod m = invExpr.getMethod();
-			WrapperLocalExtractorImpl pile = new WrapperLocalExtractorParam2(null);
+			WrapperLocalExtractorImpl wle = new WrapperLocalExtractorParam0(null);
+			wle = new WrapperLocalExtractorParam1(wle);
+			wle = new WrapperLocalExtractorParam2(wle);
+			wle = new WrapperLocalExtractorParam3(wle);
+			wle = new WrapperLocalExtractorParam4(wle);
 			Value v = null;
 			boolean b = false,
 					p = false;
@@ -44,7 +52,7 @@ public class Utils {
 			if(b) {
 				v = ((InstanceInvokeExpr)invExpr).getBase();
 			} else if(p) {
-				v = pile.extractWrapperLocal(invExpr);
+				v = wle.extractWrapperLocal(invExpr);
 			}
 			intents = extractIntents(v); 
 		}

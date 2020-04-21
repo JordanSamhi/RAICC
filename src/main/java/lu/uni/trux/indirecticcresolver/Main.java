@@ -2,6 +2,7 @@ package lu.uni.trux.indirecticcresolver;
 
 import edu.psu.cse.siis.ic3.Ic3CommandLineArguments;
 import edu.psu.cse.siis.ic3.Ic3CommandLineParser;
+import lu.uni.preprocessIntentSender.ISPreprocessor;
 
 public class Main {
 
@@ -14,6 +15,9 @@ public class Main {
 			return;
 		}
 		commandLineArguments.processCommandLineArguments();
+		ISPreprocessor isp = new ISPreprocessor(commandLineArguments.getApk(), commandLineArguments.getClasspath());
+		isp.run();
+		commandLineArguments.setApk(isp.getResultingApkPath());
 		analysis.performAnalysis(commandLineArguments);
 	}
 }

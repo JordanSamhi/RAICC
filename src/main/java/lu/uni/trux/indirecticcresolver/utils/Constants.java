@@ -30,7 +30,7 @@ public class Constants {
 	public static final String ANDROID_APP_PENDING_INTENT_GET_ACTIVITY = "<android.app.PendingIntent: android.app.PendingIntent getActivity(android.content.Context,int,android.content.Intent,int)>";
 	public static final String ANDROID_APP_PENDING_INTENT_GET_SERVICE = "<android.app.PendingIntent: android.app.PendingIntent getService(android.content.Context,int,android.content.Intent,int)>";
 	public static final String ANDROID_APP_PENDING_INTENT_GET_BROADCAST = "<android.app.PendingIntent: android.app.PendingIntent getBroadcast(android.content.Context,int,android.content.Intent,int)>";
-	public static final String ANDROID_APP_PENDING_INTENT_GET_INTENTSENDER = "<android.app.PendingIntent: android.content.IntentSender getIntentSender()>";
+	public static final String ANDROID_APP_PENDING_INTENT_GET_INTENTSENDER = "<android.app.PendingIntent: android.content.IntentSender getIntentSender(android.app.PendingIntent)>";
 	public static final String ANDROID_APP_ACTIVITYOPTIONS_REQUESTUSAGETIMEREPORT = "<android.app.ActivityOptions: void requestUsageTimeReport(android.app.PendingIntent)>";
 	public static final String ANDROID_APP_ALARMMANAGER_SETALARMCLOCK = "<android.app.AlarmManager: void setAlarmClock(android.app.AlarmManager$AlarmClockInfo,android.app.PendingIntent)>";
 	public static final String ANDROID_APP_ALARMMANAGER_SETANDALLOWWHILEIDLE = "<android.app.AlarmManager: void setAndAllowWhileIdle(int,long,android.app.PendingIntent)>";

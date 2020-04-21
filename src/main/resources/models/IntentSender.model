@@ -39,26 +39,27 @@ class android.content.IntentSender {
   String authority;
   Set<String> appendedPaths;
   Set<String> appendedQueries;
-
-  mod gen <android.app.PendingIntent: android.content.IntentSender getIntentSender()> {   
-    -1: replace targetType, type android.app.PendingIntent:targetType;
-    -1: replace creatorPackage, type android.app.PendingIntent:creatorPackage;
-    -1: replace action, type android.app.PendingIntent:action;
-    -1: replace categories, type android.app.PendingIntent:categories;
-    -1: replace package, type android.app.PendingIntent:package;
-    -1: replace clazz, type android.app.PendingIntent:clazz;
-    -1: replace flags, type android.app.PendingIntent:flags;
-    -1: replace extras, type android.app.PendingIntent:extras;
-    -1: replace dataType, type android.app.PendingIntent:dataType;
-    -1: replace scheme, type android.app.PendingIntent:scheme;
-    -1: replace ssp, type android.app.PendingIntent:ssp;
-    -1: replace fragment, type android.app.PendingIntent:fragment;
-    -1: replace uri, type android.app.PendingIntent:uri;
-    -1: replace path, type android.app.PendingIntent:path;
-    -1: replace uriQuery, type android.app.PendingIntent:uriQuery;
-    -1: replace authority, type android.app.PendingIntent:authority;
-    -1: replace appendedPaths, type android.app.PendingIntent:appendedPaths;
-    -1: replace appendedQueries, type android.app.PendingIntent:appendedQueries;
+  
+  
+  mod gen <android.app.PendingIntent: android.content.IntentSender getIntentSender(android.app.PendingIntent)> {   
+    0: replace targetType, type android.app.PendingIntent:targetType;
+    0: replace creatorPackage, type android.app.PendingIntent:creatorPackage;
+    0: replace action, type android.app.PendingIntent:action;
+    0: replaceAll categories, type android.app.PendingIntent:categories;
+    0: replace package, type android.app.PendingIntent:package;
+    0: replace clazz, type android.app.PendingIntent:clazz;
+    0: replaceAll flags, type android.app.PendingIntent:flags;
+    0: replaceAll extras, type android.app.PendingIntent:extras;
+    0: replace dataType, type android.app.PendingIntent:dataType;
+    0: replace scheme, type android.app.PendingIntent:scheme;
+    0: replace ssp, type android.app.PendingIntent:ssp;
+    0: replace fragment, type android.app.PendingIntent:fragment;
+    0: replace uri, type android.app.PendingIntent:uri;
+    0: replace path, type android.app.PendingIntent:path;
+    0: replace uriQuery, type android.app.PendingIntent:uriQuery;
+    0: replace authority, type android.app.PendingIntent:authority;
+    0: replaceAll appendedPaths, type android.app.PendingIntent:appendedPaths;
+    0: replaceAll appendedQueries, type android.app.PendingIntent:appendedQueries;
   }
   
   argument intentSender0 = 0: type android.content.IntentSender, prop "valueType": "intentSender";
