@@ -74,5 +74,10 @@
 			<artifactId>javatuples</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>lu.uni.trux</groupId>
+			<artifactId>preprocessIntentSender</artifactId>
+			<version>0.1</version>
+		</dependency>
 	</dependencies>
 </project>
