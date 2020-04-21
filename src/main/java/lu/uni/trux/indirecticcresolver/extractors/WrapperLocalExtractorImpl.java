@@ -1,14 +1,19 @@
 package lu.uni.trux.indirecticcresolver.extractors;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import soot.SootMethod;
 import soot.Value;
 import soot.jimple.InvokeExpr;
 
 public abstract class WrapperLocalExtractorImpl implements WrapperLocalExtractor {
 	private WrapperLocalExtractorImpl next;
+	protected List<String> methods;
 
 	public WrapperLocalExtractorImpl(WrapperLocalExtractorImpl next) {
 		this.next = next;
+		this.methods = new ArrayList<String>();
 	}
 	
 	@Override
@@ -26,12 +31,15 @@ public abstract class WrapperLocalExtractorImpl implements WrapperLocalExtractor
 	
 	private Value extract(InvokeExpr inv) {
 		SootMethod m = inv.getMethod();
-		if(m.getSignature().equals(this.getMethodSignatureRecognized())) {
+		if(this.canHandleMethod(m.getSignature())) {
 			return inv.getArg(this.getIndexHandled());
 		}
 		return null;
 	}
 	
-	protected abstract String getMethodSignatureRecognized();
+	protected boolean canHandleMethod(String m) {
+		return this.methods.contains(m);
+	}
+	
 	protected abstract int getIndexHandled();
 }

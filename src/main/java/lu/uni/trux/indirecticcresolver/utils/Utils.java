@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import lu.uni.trux.indirecticcresolver.exceptions.MethodNotFoundException;
-import lu.uni.trux.indirecticcresolver.extractors.WAndroidAppAlarmManagerSet;
+import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam2;
 import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorImpl;
 import soot.Body;
 import soot.Local;
@@ -26,16 +26,11 @@ public class Utils {
 	protected static Logger logger = LoggerFactory.getLogger(Utils.class);
 
 	public static List<Local> getLocalsUsedToConstructIntentWrapper(Unit stmt) {
-		// considered different types of methods
-		// parameter : pendingintent
-		// paramter: intentsender
-		// base : peindngtent
-		// base intensender
 		List<Local> intents = new ArrayList<Local>();
 		if(stmt instanceof InvokeStmt) {
 			InvokeExpr invExpr = ((InvokeStmt)stmt).getInvokeExpr();
 			SootMethod m = invExpr.getMethod();
-			WrapperLocalExtractorImpl pile = new WAndroidAppAlarmManagerSet(null);
+			WrapperLocalExtractorImpl pile = new WrapperLocalExtractorParam2(null);
 			Value v = null;
 			boolean b = false,
 					p = false;

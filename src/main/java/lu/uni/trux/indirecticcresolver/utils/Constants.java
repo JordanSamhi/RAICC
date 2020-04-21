@@ -62,13 +62,13 @@ public class Constants {
 	public static final String ANDROID_MEDIA_SESSION_MEDIASESSION_SETSESSIONACTIVITY = "<android.media.session.MediaSession: void setSessionActivity(android.app.PendingIntent)>";
 	public static final String ANDROID_NET_CONNECTIVITYMANAGER_REGISTERNETWORKCALLBACK = "<android.net.ConnectivityManager: void registerNetworkCallback(android.net.NetworkRequest,android.app.PendingIntent)>";
 	public static final String ANDROID_NET_CONNECTIVITYMANAGER_REQUESTNETWORK = "<android.net.ConnectivityManager: void requestNetwork(android.net.NetworkRequest,android.app.PendingIntent)>";
-	public static final String ANDROID_NET_SIP_SIPMANAGER = "<android.net.sip.sipmanager: void open(android.net.sip.SipProfile,android.app.PendingIntent,android.net.sip.SipRegistrationListener)>";
+	public static final String ANDROID_NET_SIP_SIPMANAGER_OPEN = "<android.net.sip.sipmanager: void open(android.net.sip.SipProfile,android.app.PendingIntent,android.net.sip.SipRegistrationListener)>";
 	public static final String ANDROID_NET_VPNSERVICE_BUILDER_SETCONFIGUREINTENT = "<android.net.VpnService.Builder: android.net.VpnService.Builder setConfigureIntent(android.app.PendingIntent)>";
 	public static final String ANDROID_NFC_NFCADAPTER_ENABLEFOREGROUNDDISPATCH = "<android.nfc.NfcAdapter: void enableForegroundDispatch(android.app.Activity,android.app.PendingIntent,android.content.IntentFilter[],java.lang.String[][])>";
 	public static final String ANDROID_PRINT_PRINTERINFO_BUILDER_SETINFOINTENT = "<android.print.PrinterInfo.Builder: android.print.PrinterInfo.Builder setInfoIntent(android.app.PendingIntent)>";
 	public static final String ANDROID_SUPPORT_V4_APP_ACTIVITYOPTIONSCOMPAT_REQUESTUSAGETIMEREPORT = "<android.support.v4.app.ActivityOptionsCompat: void requestUsageTimeReport(android.app.PendingIntent)>";
 	public static final String ANDROID_SUPPORT_V4_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_1 = "<android.support.v4.app.NotificationCompat$Action$Builder: void <init>(int,java.lang.CharSequence,android.app.PendingIntent)>";
-	public static final String ANDROID_SUPPORT_V4_APP_NOTIFICATIONCOMPAT$ACTION_2 = "<android.support.v4.app.NotificationCompat$Action: void <init>(int,java.lang.CharSequence,android.app.PendingIntent)>";
+	public static final String ANDROID_SUPPORT_V4_APP_NOTIFICATIONCOMPAT$ACTION_1 = "<android.support.v4.app.NotificationCompat$Action: void <init>(int,java.lang.CharSequence,android.app.PendingIntent)>";
 	public static final String ANDROID_SUPPORT_V4_APP_NOTIFICATIONCOMPAT$BUILDER_ADDACTION = "<android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder addAction(int,java.lang.CharSequence,android.app.PendingIntent)>";
 	public static final String ANDROID_SUPPORT_V4_APP_NOTIFICATIONCOMPAT$BUILDER_SETFULLSCREENINTENT = "<android.support.v4.app.NotificationCompat$Builder: android.support.v4.app.NotificationCompat$Builder setFullScreenIntent(android.app.PendingIntent,boolean)>";
 	public static final String ANDROID_SUPPORT_V4_MEDIA_APP_NOTIFICATIONCOMPAT$MEDIASTYLE_SETCANCELBUTTONINTENT = "<android.support.v4.media.app.NotificationCompat$MediaStyle: android.support.v4.media.app.NotificationCompat$MediaStyle setCancelButtonIntent(android.app.PendingIntent)>";
@@ -105,7 +105,7 @@ public class Constants {
 	public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$BUBBLEMETADATA_2 = "<androidx.core.app.NotificationCompat$BubbleMetadata: void <init>(android.app.PendingIntent,android.app.PendingIntent,androidx.core.graphics.drawable.IconCompat,int,int,int,androidx.core.app.NotificationCompat$1)>";
 	public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$BUILDER_ADDACTION = "<androidx.core.app.NotificationCompat$Builder: androidx.core.app.NotificationCompat$Builder addAction(int,java.lang.CharSequence,android.app.PendingIntent)>";
 	public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$CAREXTENDER$UNREADCONVERSATION = "<androidx.core.app.NotificationCompat$CarExtender$UnreadConversation: void <init>(java.lang.String[],androidx.core.app.RemoteInput,android.app.PendingIntent,android.app.PendingIntent,java.lang.String[],long)>";
-	public static final String ANDROIID_APP_NOTIFICATION_SETLATESTEVENTINFO = "<androiid.app.Notification: void setLatestEventInfo(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,android.app.PendingIntent)>";
+	public static final String ANDROID_APP_NOTIFICATION_SETLATESTEVENTINFO = "<android.app.Notification: void setLatestEventInfo(android.content.Context,java.lang.CharSequence,java.lang.CharSequence,android.app.PendingIntent)>";
 	public static final String COM_GOOGLE_ANDROID_GMS_LOCATION_ACTIVITYRECOGNITIONAPI_REQUESTACTIVITYUPDATES = "<com.google.android.gms.location.ActivityRecognitionApi: com.google.android.gms.common.api.PendingResult requestActivityUpdates(com.google.android.gms.common.api.GoogleApiClient,long,android.app.PendingIntent)>";
 	public static final String COM_GOOGLE_ANDROID_GMS_LOCATION_FUSEDLOCATIONPROVIDERAPI_REQUESTLOCATIONUPDATES = "<com.google.android.gms.location.FusedLocationProviderApi: com.google.android.gms.common.api.PendingResult requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationRequest,android.app.PendingIntent)>";
 	public static final String COM_GOOGLE_ANDROID_GMS_LOCATION_FUSEDLOCATIONPROVIDERCLIENT_REQUESTLOCATIONUPDATES = "<com.google.android.gms.location.FusedLocationProviderClient: com.google.android.gms.tasks.Task requestLocationUpdates(com.google.android.gms.location.LocationRequest,android.app.PendingIntent)>";
@@ -147,7 +147,7 @@ public class Constants {
 	 * Method subsignatures
 	 */
 	public static final String START_ACTIVITY = "void startActivity(android.content.Intent)";
-	public static final String START_SERVICE = "void startService(android.content.Intent)";
+	public static final String START_SERVICE = "android.content.ComponentName startService(android.content.Intent)";
 	public static final String SEND_BROADCAST = "void sendBroadcast(android.content.Intent)";
 	public static final String START_ACTIVITY_FOR_RESULT = "void startActivityForResult(android.content.Intent,int)";
 

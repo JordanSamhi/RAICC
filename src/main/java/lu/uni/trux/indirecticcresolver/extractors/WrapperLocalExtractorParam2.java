@@ -1,0 +1,42 @@
+package lu.uni.trux.indirecticcresolver.extractors;
+
+import lu.uni.trux.indirecticcresolver.utils.Constants;
+
+public class WrapperLocalExtractorParam2 extends WrapperLocalExtractorImpl {
+
+	public WrapperLocalExtractorParam2(WrapperLocalExtractorImpl next) {
+		super(next);
+		this.methods.add(Constants.ANDROID_CONTENT_PM_PACKAGEINSTALLER_INSTALLEXISTINGPACKAGE);
+		this.methods.add(Constants.ANDROID_APP_ALARMMANAGER_SETANDALLOWWHILEIDLE);
+		this.methods.add(Constants.ANDROID_APP_ALARMMANAGER_SET);
+		this.methods.add(Constants.ANDROID_APP_ALARMMANAGER_SETEXACTANDALLOWWHILEIDLE);
+		this.methods.add(Constants.ANDROID_APP_ALARMMANAGER_SETEXACT);
+		this.methods.add(Constants.ANDROID_APP_NOTIFICATION$BUILDER_ADDACTION);
+		this.methods.add(Constants.ANDROID_APP_NOTIFICATION$ACTION$BUILDER_1);
+		this.methods.add(Constants.ANDROID_APP_NOTIFICATION$ACTION$BUILDER_2);
+		this.methods.add(Constants.ANDROID_BLUETOOTH_LE_BLUETOOTHLESCANNER_STARTSCAN);
+		this.methods.add(Constants.ANDROID_SUPPORT_V4_APP_NOTIFICATIONCOMPAT$BUILDER_ADDACTION);
+		this.methods.add(Constants.ANDROID_TELEPHONY_EUICC_EUICCMANAGER_DOWNLOADSUBSCRIPTION);
+		this.methods.add(Constants.ANDROID_TELEPHONY_EUICC_EUICCMANAGER_UPDATESUBSCRIPTIONNICKNAME);
+		this.methods.add(Constants.ANDROID_TELEPHONY_SMSMANAGER_INJECTSMSPDU);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_1);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_2);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_3);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_4);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_1);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_2);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_3);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_4);
+		this.methods.add(Constants.ANDROID_SUPPORT_V4_APP_NOTIFICATIONCOMPAT$ACTION_1);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$BUILDER_ADDACTION);
+		this.methods.add(Constants.ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$CAREXTENDER$UNREADCONVERSATION);
+		this.methods.add(Constants.COM_GOOGLE_ANDROID_GMS_LOCATION_ACTIVITYRECOGNITIONAPI_REQUESTACTIVITYUPDATES);
+		this.methods.add(Constants.COM_GOOGLE_ANDROID_GMS_LOCATION_FUSEDLOCATIONPROVIDERAPI_REQUESTLOCATIONUPDATES);
+		this.methods.add(Constants.COM_GOOGLE_ANDROID_GMS_LOCATION_GEOFENCINGAPI_ADDGEOFENCES);
+	}
+
+	@Override
+	protected int getIndexHandled() {
+		return 2;
+	}
+}
