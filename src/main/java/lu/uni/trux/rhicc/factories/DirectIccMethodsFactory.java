@@ -1,9 +1,9 @@
-package lu.uni.trux.indirecticcresolver.factories;
+package lu.uni.trux.rhicc.factories;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lu.uni.trux.indirecticcresolver.utils.Constants;
+import lu.uni.trux.rhicc.utils.Constants;
 import soot.Body;
 import soot.Local;
 import soot.Scene;

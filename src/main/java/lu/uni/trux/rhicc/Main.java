@@ -1,4 +1,4 @@
-package lu.uni.trux.indirecticcresolver;
+package lu.uni.trux.rhicc;
 
 import edu.psu.cse.siis.ic3.Ic3CommandLineArguments;
 import edu.psu.cse.siis.ic3.Ic3CommandLineParser;

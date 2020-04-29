@@ -1,4 +1,4 @@
-package lu.uni.trux.indirecticcresolver.utils;
+package lu.uni.trux.rhicc.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import lu.uni.trux.indirecticcresolver.exceptions.MethodNotFoundException;
-import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorImpl;
-import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam0;
-import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam1;
-import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam2;
-import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam3;
-import lu.uni.trux.indirecticcresolver.extractors.WrapperLocalExtractorParam4;
+import lu.uni.trux.rhicc.exceptions.MethodNotFoundException;
+import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorImpl;
+import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam0;
+import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam1;
+import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam2;
+import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam3;
+import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam4;
 import soot.Body;
 import soot.Local;
 import soot.Scene;

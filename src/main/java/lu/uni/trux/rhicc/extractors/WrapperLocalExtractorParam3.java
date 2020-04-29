@@ -1,6 +1,6 @@
-package lu.uni.trux.indirecticcresolver.extractors;
+package lu.uni.trux.rhicc.extractors;
 
-import lu.uni.trux.indirecticcresolver.utils.Constants;
+import lu.uni.trux.rhicc.utils.Constants;
 
 public class WrapperLocalExtractorParam3 extends WrapperLocalExtractorImpl {
 

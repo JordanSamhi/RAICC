@@ -1,4 +1,4 @@
-package lu.uni.trux.indirecticcresolver.extractors;
+package lu.uni.trux.rhicc.extractors;
 
 import soot.Value;
 import soot.jimple.InvokeExpr;

@@ -1,4 +1,4 @@
-package lu.uni.trux.indirecticcresolver.utils;
+package lu.uni.trux.rhicc.utils;
 
 import java.io.File;
 
@@ -154,5 +154,5 @@ public class Constants {
 	/**
 	 * Directories
 	 */
-	public static final String TARGET_TMP_DIR = String.format("%s%s%s", System.getProperty("java.io.tmpdir"), File.separator, "indirectIccResolver");
+	public static final String TARGET_TMP_DIR = String.format("%s%s%s", System.getProperty("java.io.tmpdir"), File.separator, "rhicc");
 }
