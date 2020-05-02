@@ -1,9 +1,9 @@
-package lu.uni.trux.rhicc.factories;
+package lu.uni.trux.raicc.factories;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import lu.uni.trux.rhicc.utils.Constants;
+import lu.uni.trux.raicc.utils.Constants;
 import soot.Body;
 import soot.Local;
 import soot.Scene;

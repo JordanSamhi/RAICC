@@ -1,4 +1,4 @@
-package lu.uni.trux.rhicc.utils;
+package lu.uni.trux.raicc.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import lu.uni.trux.rhicc.exceptions.MethodNotFoundException;
-import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorImpl;
-import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam0;
-import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam1;
-import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam2;
-import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam3;
-import lu.uni.trux.rhicc.extractors.WrapperLocalExtractorParam4;
+import lu.uni.trux.raicc.exceptions.MethodNotFoundException;
+import lu.uni.trux.raicc.extractors.WrapperLocalExtractorImpl;
+import lu.uni.trux.raicc.extractors.WrapperLocalExtractorParam0;
+import lu.uni.trux.raicc.extractors.WrapperLocalExtractorParam1;
+import lu.uni.trux.raicc.extractors.WrapperLocalExtractorParam2;
+import lu.uni.trux.raicc.extractors.WrapperLocalExtractorParam3;
+import lu.uni.trux.raicc.extractors.WrapperLocalExtractorParam4;
 import soot.Body;
 import soot.Local;
 import soot.Scene;
@@ -24,6 +24,7 @@ import soot.jimple.AssignStmt;
 import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
+import soot.jimple.VirtualInvokeExpr;
 
 public class Utils {
 
@@ -61,6 +62,7 @@ public class Utils {
 	
 	private static List<Local> extractIntents(Value v){
 		List<Local> intents = new ArrayList<Local>();
+		Local potentialIntent = null;
 		for(SootClass sc : Scene.v().getApplicationClasses()) {
 			for(SootMethod sm : sc.getMethods()) {
 				if(sm.hasActiveBody()) {
@@ -76,7 +78,10 @@ public class Utils {
 										InvokeExpr rightOpInvExpr = (InvokeExpr)rightOp;
 										SootMethod rightOpInvExprMethod = rightOpInvExpr.getMethod();
 										if(isPendingIntentCreationMethod(rightOpInvExprMethod)) {
-											intents.add((Local)rightOpInvExpr.getArg(2));
+											potentialIntent = (Local)rightOpInvExpr.getArg(2);
+											if(containsExtra(potentialIntent, body)) {
+												intents.add((Local)rightOpInvExpr.getArg(2));
+											}
 										} else if(isIntentSenderCreationMethod(rightOpInvExprMethod)) {
 											intents.addAll(extractIntents(((InstanceInvokeExpr)rightOpInvExpr).getBase()));
 										}
@@ -89,6 +94,23 @@ public class Utils {
 			}
 		}
 		return intents;
+	}
+
+	private static boolean containsExtra(Local potentialIntent, Body body) {
+		for(Unit u : body.getUnits()) {
+			if(u instanceof InvokeStmt) {
+				InvokeStmt inv = (InvokeStmt) u;
+				InvokeExpr invExpr = inv.getInvokeExpr();
+				if(invExpr instanceof VirtualInvokeExpr) {
+					VirtualInvokeExpr vInvExpr = (VirtualInvokeExpr) invExpr;
+					Value base = vInvExpr.getBase();
+					if(potentialIntent.equals(base) && vInvExpr.getMethod().getName().equals(Constants.PUT_EXTRA)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	private static boolean isIntentSenderCreationMethod(SootMethod m) {

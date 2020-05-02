@@ -1,4 +1,4 @@
-package lu.uni.trux.rhicc.utils;
+package lu.uni.trux.raicc.utils;
 
 import java.io.File;
 
@@ -154,5 +154,10 @@ public class Constants {
 	/**
 	 * Directories
 	 */
-	public static final String TARGET_TMP_DIR = String.format("%s%s%s", System.getProperty("java.io.tmpdir"), File.separator, "rhicc");
+	public static final String TARGET_TMP_DIR = String.format("%s%s%s", System.getProperty("java.io.tmpdir"), File.separator, "raicc");
+	
+	/**
+	 * Misc
+	 */
+	public static final String PUT_EXTRA = "putExtra";
 }

@@ -1,4 +1,4 @@
-package lu.uni.trux.rhicc.exceptions;
+package lu.uni.trux.raicc.exceptions;
 
 public class MethodNotFoundException extends Exception {
 

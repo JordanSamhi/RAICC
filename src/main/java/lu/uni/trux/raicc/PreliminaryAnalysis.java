@@ -1,4 +1,4 @@
-package lu.uni.trux.rhicc;
+package lu.uni.trux.raicc;
 
 import java.util.List;
 import java.util.Map;
@@ -16,11 +16,11 @@ import edu.psu.cse.siis.coal.field.values.FieldValue;
 import edu.psu.cse.siis.coal.values.PropagationValue;
 import edu.psu.cse.siis.ic3.Ic3Analysis;
 import edu.psu.cse.siis.ic3.Ic3CommandLineArguments;
-import lu.uni.trux.rhicc.exceptions.MethodNotFoundException;
-import lu.uni.trux.rhicc.factories.DirectIccMethodsFactory;
-import lu.uni.trux.rhicc.utils.Constants;
-import lu.uni.trux.rhicc.utils.IndirectMethodChecker;
-import lu.uni.trux.rhicc.utils.Utils;
+import lu.uni.trux.raicc.exceptions.MethodNotFoundException;
+import lu.uni.trux.raicc.factories.DirectIccMethodsFactory;
+import lu.uni.trux.raicc.utils.Constants;
+import lu.uni.trux.raicc.utils.IndirectMethodChecker;
+import lu.uni.trux.raicc.utils.Utils;
 import soot.Body;
 import soot.Local;
 import soot.PackManager;

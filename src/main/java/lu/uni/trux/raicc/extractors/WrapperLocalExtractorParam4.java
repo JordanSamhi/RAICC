@@ -1,6 +1,6 @@
-package lu.uni.trux.rhicc.extractors;
+package lu.uni.trux.raicc.extractors;
 
-import lu.uni.trux.rhicc.utils.Constants;
+import lu.uni.trux.raicc.utils.Constants;
 
 public class WrapperLocalExtractorParam4 extends WrapperLocalExtractorImpl {
 

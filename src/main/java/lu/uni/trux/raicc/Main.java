@@ -1,4 +1,4 @@
-package lu.uni.trux.rhicc;
+package lu.uni.trux.raicc;
 
 import edu.psu.cse.siis.ic3.Ic3CommandLineArguments;
 import edu.psu.cse.siis.ic3.Ic3CommandLineParser;

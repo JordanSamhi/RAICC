@@ -1,4 +1,4 @@
-package lu.uni.trux.rhicc.extractors;
+package lu.uni.trux.raicc.extractors;
 
 import java.util.ArrayList;
 import java.util.List;

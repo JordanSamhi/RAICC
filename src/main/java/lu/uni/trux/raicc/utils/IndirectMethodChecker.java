@@ -1,4 +1,4 @@
-package lu.uni.trux.rhicc.utils;
+package lu.uni.trux.raicc.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.javatuples.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import lu.uni.trux.rhicc.exceptions.MethodNotFoundException;
+import lu.uni.trux.raicc.exceptions.MethodNotFoundException;
 import soot.SootMethod;
 
 public class IndirectMethodChecker {

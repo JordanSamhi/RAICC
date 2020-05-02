@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>lu.uni.trux</groupId>
-	<artifactId>RHICC</artifactId>
-	<name>RHICC</name>
+	<artifactId>RAICC</artifactId>
+	<name>RAICC</name>
 	<version>0.1</version>
 	<packaging>jar</packaging>
-	<description>RHICC finds non-standard way to perform ICC in Android applications.</description>
+	<description>RAICC finds atypical ways to perform ICC in Android applications.</description>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -54,7 +54,7 @@
 					<archive>
 						<manifest>
 							<mainClass>
-								lu.uni.trux.rhicc.Main
+								lu.uni.trux.raicc.Main
 							</mainClass>
 						</manifest>
 					</archive>
