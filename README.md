@@ -1,12 +1,12 @@
-# RHICC
-Reveal Hidden Inter-Component Communication
+# RAICC
+Reveal Atypical Inter-Component Communication
 
 ## Getting started
 
 ### Downloading the tool
 
 <pre>
-git clone https://github.com/JordanSamhi/RHICC.git
+git clone https://github.com/JordanSamhi/RAICC.git
 </pre>
 
 ### Installing the tool
@@ -21,7 +21,7 @@ mvn clean install
 ### Using the tool
 
 <pre>
-java -jar indirectIccResolver/target/RHICC-0.1-jar-with-dependencies.jar <i>options</i>
+java -jar indirectIccResolver/target/RAICC-0.1-jar-with-dependencies.jar <i>options</i>
 </pre>
 
 ## Built With
