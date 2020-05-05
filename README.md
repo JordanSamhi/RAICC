@@ -21,7 +21,7 @@ mvn clean install
 ### Using the tool
 
 <pre>
-java -jar indirectIccResolver/target/RAICC-0.1-jar-with-dependencies.jar <i>options</i>
+java -jar RAICC/target/RAICC-0.1-jar-with-dependencies.jar <i>options</i>
 </pre>
 
 ## Built With
