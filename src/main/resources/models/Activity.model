@@ -39,7 +39,7 @@ class android.app.Activity {
     argument intentSender1;
   }
 
-  query <lu.uni.trux.tests.MainActivity: void startIntentSender(android.content.IntentSender,android.content.Intent,int,int,int)> {
+  query <android.app.Activity: void startIntentSender(android.content.IntentSender,android.content.Intent,int,int,int)> {
     argument intentSender0;
   }
   
