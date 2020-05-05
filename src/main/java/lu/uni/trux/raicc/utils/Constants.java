@@ -155,9 +155,4 @@ public class Constants {
 	 * Directories
 	 */
 	public static final String TARGET_TMP_DIR = String.format("%s%s%s", System.getProperty("java.io.tmpdir"), File.separator, "raicc");
-	
-	/**
-	 * Misc
-	 */
-	public static final String PUT_EXTRA = "putExtra";
 }

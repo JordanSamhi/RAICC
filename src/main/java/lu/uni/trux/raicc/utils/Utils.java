@@ -24,7 +24,6 @@ import soot.jimple.AssignStmt;
 import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
-import soot.jimple.VirtualInvokeExpr;
 
 public class Utils {
 
@@ -79,9 +78,7 @@ public class Utils {
 										SootMethod rightOpInvExprMethod = rightOpInvExpr.getMethod();
 										if(isPendingIntentCreationMethod(rightOpInvExprMethod)) {
 											potentialIntent = (Local)rightOpInvExpr.getArg(2);
-											if(containsExtra(potentialIntent, body)) {
-												intents.add((Local)rightOpInvExpr.getArg(2));
-											}
+											intents.add(potentialIntent);
 										} else if(isIntentSenderCreationMethod(rightOpInvExprMethod)) {
 											intents.addAll(extractIntents(((InstanceInvokeExpr)rightOpInvExpr).getBase()));
 										}
@@ -94,23 +91,6 @@ public class Utils {
 			}
 		}
 		return intents;
-	}
-
-	private static boolean containsExtra(Local potentialIntent, Body body) {
-		for(Unit u : body.getUnits()) {
-			if(u instanceof InvokeStmt) {
-				InvokeStmt inv = (InvokeStmt) u;
-				InvokeExpr invExpr = inv.getInvokeExpr();
-				if(invExpr instanceof VirtualInvokeExpr) {
-					VirtualInvokeExpr vInvExpr = (VirtualInvokeExpr) invExpr;
-					Value base = vInvExpr.getBase();
-					if(potentialIntent.equals(base) && vInvExpr.getMethod().getName().equals(Constants.PUT_EXTRA)) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
 	}
 
 	private static boolean isIntentSenderCreationMethod(SootMethod m) {
