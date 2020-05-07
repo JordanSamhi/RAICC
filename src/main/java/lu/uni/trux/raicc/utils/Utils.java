@@ -24,15 +24,17 @@ import soot.jimple.AssignStmt;
 import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
+import soot.jimple.Stmt;
 
 public class Utils {
 
 	protected static Logger logger = LoggerFactory.getLogger(Utils.class);
 
-	public static List<Local> getLocalsUsedToConstructIntentWrapper(Unit stmt) {
+	public static List<Local> getLocalsUsedToConstructIntentWrapper(Unit u) {
+		Stmt stmt = (Stmt) u;
 		List<Local> intents = new ArrayList<Local>();
-		if(stmt instanceof InvokeStmt) {
-			InvokeExpr invExpr = ((InvokeStmt)stmt).getInvokeExpr();
+		if(stmt.containsInvokeExpr()) {
+			InvokeExpr invExpr = stmt.getInvokeExpr();
 			SootMethod m = invExpr.getMethod();
 			WrapperLocalExtractorImpl wle = new WrapperLocalExtractorParam0(null);
 			wle = new WrapperLocalExtractorParam1(wle);

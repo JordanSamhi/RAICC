@@ -15,7 +15,7 @@ public class Constants {
 	/**
 	 * Files
 	 */
-	public static final String INDIRECT_ICC_METHODS = "/indirectIccMethods.txt";
+	public static final String INDIRECT_ICC_METHODS = "/AICCMethods.txt";
 
 	/**
 	 * Classes

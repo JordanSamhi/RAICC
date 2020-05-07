@@ -28,6 +28,7 @@ import soot.SootMethod;
 import soot.Unit;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
+import soot.jimple.Stmt;
 import soot.options.Options;
 
 public class PreliminaryAnalysis extends Ic3Analysis {
@@ -39,10 +40,11 @@ public class PreliminaryAnalysis extends Ic3Analysis {
 			throws FatalAnalysisException {
 		for (Result result : Results.getResults()) {
 			for(Entry<Unit, Map<Integer, Object>> entry1 : result.getResults().entrySet()) {
-				Unit stmt = entry1.getKey();
-				SootMethod stmtMethod = AnalysisParameters.v().getIcfg().getMethodOf(stmt);
-				if(stmt instanceof InvokeStmt) {
-					InvokeExpr invExpr = ((InvokeStmt)stmt).getInvokeExpr();
+				Unit unit = entry1.getKey();
+				Stmt stmt = (Stmt) unit;
+				SootMethod stmtMethod = AnalysisParameters.v().getIcfg().getMethodOf(unit);
+				if(stmt.containsInvokeExpr()) {
+					InvokeExpr invExpr = stmt.getInvokeExpr();
 					SootMethod methodCalled = invExpr.getMethod();
 					for(Entry<Integer, Object> entry2 : entry1.getValue().entrySet()) {
 						Object o = entry2.getValue();
@@ -51,7 +53,7 @@ public class PreliminaryAnalysis extends Ic3Analysis {
 							Set<FieldValue> fValues = pv.getValuesForField(Constants.TARGET_TYPE);
 							if(fValues != null && !fValues.isEmpty()) {
 								if(IndirectMethodChecker.v().isIndirectMethod(methodCalled)) {
-									List<Local> intents = Utils.getLocalsUsedToConstructIntentWrapper(stmt);
+									List<Local> intents = Utils.getLocalsUsedToConstructIntentWrapper(unit);
 									if(intents != null && !intents.isEmpty()) {
 										for(Local intent : intents) {
 											List<Unit> unitsToAdd = null;
@@ -81,7 +83,7 @@ public class PreliminaryAnalysis extends Ic3Analysis {
 												}
 												if(unitsToAdd != null && !unitsToAdd.isEmpty()) {
 													Body b = stmtMethod.retrieveActiveBody();
-													b.getUnits().insertAfter(unitsToAdd, stmt);
+													b.getUnits().insertAfter(unitsToAdd, unit);
 													b.validate();
 												}
 											}
