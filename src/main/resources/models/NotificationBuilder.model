@@ -47,11 +47,11 @@ class android.app.Notification$Builder {
     argument pendingIntent0;
   }
   
-  query <com.parse.NotificationCompat$Builder: com.parse.NotificationCompat$Builder setContentIntent(android.app.PendingIntent)> {
+  query <androidx.core.app.NotificationCompat$Builder: androidx.core.app.NotificationCompat$Builder setContentIntent(android.app.PendingIntent)> {
     argument pendingIntent0;
   }
   
-  query <com.parse.NotificationCompat$Builder: com.parse.NotificationCompat$Builder setDeleteIntent(android.app.PendingIntent)> {
+  query <androidx.core.app.NotificationCompat$Builder: androidx.core.app.NotificationCompat$Builder setDeleteIntent(android.app.PendingIntent)> {
     argument pendingIntent0;
   }
   

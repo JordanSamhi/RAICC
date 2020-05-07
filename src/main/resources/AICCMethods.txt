@@ -81,8 +81,8 @@
 <com.google.android.vending.expansion.downloader.DownloaderClientMarshaller: int startDownloadServiceIfRequired(android.content.Context,android.app.PendingIntent,java.lang.Class)>|0|p:p
 <com.google.vr.ndk.base.DaydreamApi: void launchInVr(android.app.Activity,android.app.PendingIntent)>|0|p:p
 <com.google.vr.ndk.base.DaydreamApi: void launchInVrForResult(android.app.Activity,android.app.PendingIntent,int)>|1|p:p
-<com.parse.NotificationCompat$Builder: com.parse.NotificationCompat$Builder setContentIntent(android.app.PendingIntent)>|0|p:p
-<com.parse.NotificationCompat$Builder: com.parse.NotificationCompat$Builder setDeleteIntent(android.app.PendingIntent)>|0|p:p
+<androidx.core.app.NotificationCompat$Builder: androidx.core.app.NotificationCompat$Builder setContentIntent(android.app.PendingIntent)>|0|p:p
+<androidx.core.app.NotificationCompat$Builder: androidx.core.app.NotificationCompat$Builder setDeleteIntent(android.app.PendingIntent)>|0|p:p
 <android.content.pm.PackageInstaller$Session: void commit(android.content.IntentSender)>|0|p:i
 <android.content.pm.PackageInstaller: void installExistingPackage(java.lang.String,int,android.content.IntentSender)>|0|p:i
 <android.companion.CompanionDeviceManager$Callback: void onDeviceFound(android.content.IntentSender)>|0|p:i
