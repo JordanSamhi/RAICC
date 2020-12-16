@@ -23,7 +23,6 @@ import soot.Value;
 import soot.jimple.AssignStmt;
 import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.InvokeExpr;
-import soot.jimple.InvokeStmt;
 import soot.jimple.Stmt;
 
 public class Utils {
@@ -108,5 +107,4 @@ public class Utils {
 		}
 		return false;
 	}
-
 }

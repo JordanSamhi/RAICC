@@ -27,7 +27,6 @@ import soot.PackManager;
 import soot.SootMethod;
 import soot.Unit;
 import soot.jimple.InvokeExpr;
-import soot.jimple.InvokeStmt;
 import soot.jimple.Stmt;
 import soot.options.Options;
 
