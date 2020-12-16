@@ -18,6 +18,16 @@ mvn clean install:install-file -Dfile=libs/preprocessIntentSender-0.1.jar -Dgrou
 mvn clean install
 </pre>
 
+### Issues
+
+If you stumble upon a stack overflow error while building RAICC, increase memory available with this command:
+
+<pre>
+export MAVEN_OPTS=-Xss32m
+</pre>
+
+Then, try to rebuild.
+
 ### Using the tool
 
 <pre>
