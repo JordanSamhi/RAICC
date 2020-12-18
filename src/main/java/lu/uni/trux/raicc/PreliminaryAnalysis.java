@@ -127,7 +127,7 @@ public class PreliminaryAnalysis extends Ic3Analysis {
 			}
 		}
 		Options.v().set_output_format(Options.output_format_dex);
-		Options.v().set_output_dir(Constants.TARGET_TMP_DIR);
+		Options.v().set_output_dir(commandLineArguments.getOutput() == null ? Constants.TARGET_TMP_DIR : commandLineArguments.getOutput());
 		Options.v().set_force_overwrite(true);
 		PackManager.v().writeOutput();
 	}
