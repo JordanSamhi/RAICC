@@ -1,7 +1,6 @@
-package lu.uni.trux.raicc.extractors;
+package lu.uni.trux.raicc.libs;
 
-import soot.Value;
-import soot.jimple.InvokeExpr;
+import lu.uni.trux.raicc.utils.Constants;
 
 /*-
  * #%L
@@ -29,6 +28,33 @@ import soot.jimple.InvokeExpr;
  * #L%
  */
 
-public interface WrapperLocalExtractor {
-	public Value extractWrapperLocal(InvokeExpr inv);
+public class LibrariesManager extends FileLoader {
+	
+	private static LibrariesManager instance;
+	
+	private LibrariesManager () {
+		super();
+	}
+
+	public static LibrariesManager v() {
+		if(instance == null) {
+			instance = new LibrariesManager();
+		}
+		return instance;
+	}
+
+	@Override
+	public boolean contains(String s) {
+		for(String lib : this.items) {
+			if(s.startsWith(lib)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	protected String getFile() {
+		return Constants.LIBRARIES_FILE;
+	}
 }
