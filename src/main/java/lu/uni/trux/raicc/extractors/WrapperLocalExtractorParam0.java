@@ -73,4 +73,12 @@ public class WrapperLocalExtractorParam0 extends WrapperLocalExtractorImpl {
 	protected int getIndexHandled() {
 		return 0;
 	}
+
+	protected boolean canHandleMethod(String m) {
+		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
+				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
+			return true;
+		}
+		return this.methods.contains(m);
+	}
 }

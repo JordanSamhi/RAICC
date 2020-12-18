@@ -40,20 +40,20 @@ import soot.SootMethod;
  * #L%
  */
 
-public class IndirectMethodChecker {
+public class AtypicalMethodChecker {
 
-	private static IndirectMethodChecker instance;
+	private static AtypicalMethodChecker instance;
 	protected Logger logger = LoggerFactory.getLogger(Utils.class);
 	private Map<String, Pair<Boolean, String>> methods;	
 
-	private IndirectMethodChecker() {
+	private AtypicalMethodChecker() {
 		this.methods = new HashMap<String, Pair<Boolean,String>>();
 		this.loadMethods();
 	}
 
-	public static IndirectMethodChecker v() {
+	public static AtypicalMethodChecker v() {
 		if(instance == null) {
-			instance = new IndirectMethodChecker();
+			instance = new AtypicalMethodChecker();
 		}
 		return instance;
 	}
@@ -63,7 +63,7 @@ public class IndirectMethodChecker {
 		BufferedReader br = null;
 		String line = null;
 		try {
-			fis = Utils.class.getResourceAsStream(Constants.INDIRECT_ICC_METHODS);
+			fis = Utils.class.getResourceAsStream(Constants.ATYPICAL_ICC_METHODS);
 			br = new BufferedReader(new InputStreamReader(fis));
 			String method = null;
 			boolean forResult = false;
@@ -88,48 +88,73 @@ public class IndirectMethodChecker {
 		}
 	}
 
-	public boolean isIndirectMethod(String m) {
+	public boolean isAtypicalMethod(String m) {
+		//TODO fix that
+		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
+				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
+			return true;
+		}
 		return this.methods.containsKey(m);
 	}
 
-	public boolean isIndirectMethod(SootMethod m) {
-		return this.isIndirectMethod(m.getSignature());
+	public boolean isAtypicalMethod(SootMethod m) {
+		return this.isAtypicalMethod(m.getSignature());
 	}
 
 	public boolean isForResultMethod(String m) throws MethodNotFoundException {
 		this.checkMethodExistence(m);
+		//TODO fix that
+		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
+				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
+			return true;
+		}
 		Pair<Boolean, String> v = this.methods.get(m);
 		return v.getValue0();
 	}
-	
+
 	public boolean isForResultMethod(SootMethod m) throws MethodNotFoundException {
 		return this.isForResultMethod(m.getSignature());
 	}
-	
+
 	public boolean isWrapperBase(String m) throws MethodNotFoundException {
 		this.checkMethodExistence(m);
+		//TODO fix that
+		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
+				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
+			return false;
+		}
 		Pair<Boolean, String> v = this.methods.get(m);
 		return v.getValue1().split(":")[0].equals("b");
 	}
-	
+
 	public boolean isWrapperBase(SootMethod m) throws MethodNotFoundException {
 		return this.isWrapperBase(m.getSignature());
 	}
-	
+
 	public boolean isWrapperParameter(String m) throws MethodNotFoundException {
 		this.checkMethodExistence(m);
+		//TODO fix that
+		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
+				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
+			return true;
+		}
 		Pair<Boolean, String> v = this.methods.get(m);
 		return v.getValue1().split(":")[0].equals("p");
 	}
-	
+
 	public boolean isWrapperParameter(SootMethod m) throws MethodNotFoundException {
 		return this.isWrapperParameter(m.getSignature());
 	}
-	
+
 	private void checkMethodExistence(String m) throws MethodNotFoundException {
+		//TODO fix that
+		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
+				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
+			return;
+		}
 		Pair<Boolean, String> v = this.methods.get(m);
 		if(v == null) {
-			throw new MethodNotFoundException(String.format("Method not found in list of indirect methods: %s", m));
+			throw new MethodNotFoundException(String.format("Method not found in list of atypical methods: %s", m));
 		}
 	}
 }

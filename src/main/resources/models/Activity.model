@@ -27,7 +27,7 @@ class android.app.Activity {
     argument intentSender0;
   }
   
-  query <android.app.Activity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)> {
+  query <lu.uni.trux.raicc.startIntentSenderForResult.MainActivity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int)> {
     argument intentSender0;
   }
   

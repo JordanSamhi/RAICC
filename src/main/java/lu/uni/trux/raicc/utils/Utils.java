@@ -70,8 +70,8 @@ public class Utils {
 			boolean b = false,
 					p = false;
 			try {
-				b = IndirectMethodChecker.v().isWrapperBase(m);
-				p = IndirectMethodChecker.v().isWrapperParameter(m);
+				b = AtypicalMethodChecker.v().isWrapperBase(m);
+				p = AtypicalMethodChecker.v().isWrapperParameter(m);
 			} catch (MethodNotFoundException e) {
 				logger.error(e.getMessage());
 			}

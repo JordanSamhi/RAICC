@@ -41,7 +41,7 @@ public class Constants {
 	/**
 	 * Files
 	 */
-	public static final String INDIRECT_ICC_METHODS = "/AICCMethods.txt";
+	public static final String ATYPICAL_ICC_METHODS = "/AICCMethods.txt";
 	public static final String LIBRARIES_FILE = "/libs.txt";
 
 	/**
@@ -156,6 +156,8 @@ public class Constants {
 	public static final String ANDROID_CONTENT_CONTEXT_STARTINTENTSENDER_2 = "<android.content.Context: void startIntentSender(android.content.IntentSender,android.content.Intent,int,int,int,android.os.Bundle)>";
 	public static final String ANDROID_APP_ACTIVITY_STARTINTENTSENDERFORRESULT_1 = "<android.app.Activity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int)>";
 	public static final String ANDROID_APP_ACTIVITY_STARTINTENTSENDERFORRESULT_2 = "<android.app.Activity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)>";
+	public static final String START_INTENTSENDER_FOR_RESULT_1 = "void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int)";
+	public static final String START_INTENTSENDER_FOR_RESULT_2 = "void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)";
 	public static final String ANDROID_APP_ACTIVITY_STARTINTENTSENDERFROMCHILD_1 = "<android.app.Activity: void startIntentSenderFromChild(android.app.Activity,android.content.IntentSender,int,android.content.Intent,int,int,int)>";
 	public static final String ANDROID_APP_ACTIVITY_STARTINTENTSENDERFROMCHILD_2 = "<android.app.Activity: void startIntentSenderFromChild(android.app.Activity,android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)>";
 	public static final String ANDROID_CONTENT_PM_PACKAGEINSTALLER_UNINSTALL_1 = "<android.content.pm.PackageInstaller: void uninstall(android.content.pm.VersionedPackage,android.content.IntentSender)>";

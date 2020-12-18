@@ -20,7 +20,7 @@ import lu.uni.trux.raicc.exceptions.MethodNotFoundException;
 import lu.uni.trux.raicc.factories.DirectIccMethodsFactory;
 import lu.uni.trux.raicc.libs.LibrariesManager;
 import lu.uni.trux.raicc.utils.Constants;
-import lu.uni.trux.raicc.utils.IndirectMethodChecker;
+import lu.uni.trux.raicc.utils.AtypicalMethodChecker;
 import lu.uni.trux.raicc.utils.Utils;
 import soot.Body;
 import soot.Local;
@@ -81,7 +81,7 @@ public class PreliminaryAnalysis extends Ic3Analysis {
 								PropagationValue pv = (PropagationValue) o;
 								Set<FieldValue> fValues = pv.getValuesForField(Constants.TARGET_TYPE);
 								if(fValues != null && !fValues.isEmpty()) {
-									if(IndirectMethodChecker.v().isIndirectMethod(methodCalled)) {
+									if(AtypicalMethodChecker.v().isAtypicalMethod(methodCalled)) {
 										List<Local> intents = Utils.getLocalsUsedToConstructIntentWrapper(unit);
 										if(intents != null && !intents.isEmpty()) {
 											for(Local intent : intents) {
@@ -92,7 +92,7 @@ public class PreliminaryAnalysis extends Ic3Analysis {
 													if(v.equals(Constants.ACTIVITY)) {
 														boolean isForResult = false;
 														try {
-															isForResult = IndirectMethodChecker.v().isForResultMethod(methodCalled);
+															isForResult = AtypicalMethodChecker.v().isForResultMethod(methodCalled);
 														} catch (MethodNotFoundException e) {
 															logger.error(e.getMessage());
 														} 
