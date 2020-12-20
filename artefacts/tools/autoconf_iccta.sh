@@ -51,6 +51,7 @@ then
 fi
 echo
 
+rm -rf soot-infoflow-android-iccta &> /dev/null
 print_info "Cloning IccTA repository..."
 git clone https://github.com/lilicoding/soot-infoflow-android-iccta.git &> /dev/null
 check_return $? "Something went wrong while cloning IccTA repository." "IccTA repository cloned."
@@ -59,6 +60,7 @@ cd soot-infoflow-android-iccta
 awk 'NR==211 {$0=") ENGINE=InnoDB  CHARACTER SET utf8;"} 1' res/schema > res/tmp && mv res/tmp res/schema &> /dev/null
 check_return $? "Something went wront with awk command." "Schema updated."
 
+mysql -u $USERNAME -p$PASSWORD -e "drop database $DATABASE_NAME" &> /dev/null
 mysql -u $USERNAME -p$PASSWORD -e "create database $DATABASE_NAME" &> /dev/null
 check_return $? "Something went wrong while creating database." "Database successfully created."
 
