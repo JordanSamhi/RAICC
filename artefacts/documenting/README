@@ -1,0 +1,117 @@
+The present document describes the artefacts for reproducing RAICC paper.
+
+RAICC is a tool to find Atypical ways to perform ICC in Android applications. 
+
+
+Content:
+
+Our artefacts are made of the source code of RAICC, the datasets used for our studies, third-party tools used and script to facilitate reproducibility.
+The results can be reproduced from RAICC repository.
+However, we also provide, since the use of some third-party tools is not trivial, a preconfigured virtual machine with scripts ready to be used.
+If for some reason, one does not want to use our virtual machine, follow the instructions available at:
+    - https://github.com/lilicoding/soot-infoflow-android-iccta/wiki/Detailed-description-of-IccTA-usage
+    - https://github.com/lilicoding/soot-infoflow-android-iccta/wiki/Configuration%E2%80%93free-usage-of-IccTA
+to set up the environment (non-trivial).
+
+
+Obtaining artefacts:
+
+Our artefacts are made available at: https://github.com/JordanSamhi/RAICC
+In this repository, there are multiple folders:
+  - src/main/ contains the source code of RAICC
+  - libs/ contains libraries for RAICC to work correctly
+  - artefacts/ contains our artefacts:
+    - droidbench/ contains our benchmark apps described in the paper
+      - apks/ contains the apks of every benchmark app of our study
+      - sources/ contains the source code of every benchmark app of our study
+    - hashes/ contains all the datasets of our study
+    - tools/ contains raicc executable, third-party executables and our scripts to run our experiments.
+
+
+Reproducing our results:
+
+We will describe how to reproduce our results.
+Note that this procedure can be applied on any dataset. Hence we describe and set up the procedure for our droidbench (20 apps). In our work we used huge datasets of several thousands of apps, reproducing it here would take weeks, hence we show how to perform it with our benchmark apps, though the same process can be used for the big datasets.
+
+1 - First, download the repository of RAICC
+    - git clone https://github.com/JordanSamhi/RAICC (1 min)
+2 - In this repository, a VM_LOCATION file contains the address for retrieving a virtualbox image in which we prepared the environment of our study.
+    - cat artefacts/VM_LOCATION (https://dropit.uni.lu/invitations?share=10a9d3e397a4542ec9e9&dl=0)
+3 - One the VM is running, go to RAICC folder (The VM must have access to the Internet):
+    - vm user: raicc, no password
+    - Open a terminal
+    - cd /home/raicc/git/RAICC
+4 - Build RAICC:
+    - ./build.sh (30 sec)
+5 - Go to tools folder:
+    - cd artefacts/tools/
+6 - Configure the environments for further experiments:
+    - ./configure.sh
+7 - Process droidbench apps with RAICC:
+    - ./process_droidbench_apps_with_raicc.sh (20-30 min on MACBOOK PRO 2020)
+8 - Newly generated and preprocessed apps are available in /home/raicc/git/RAICC/artefacts/tools/raicc_output/
+    - ls raicc_output/
+9 - Run IccTA on droidbench (not preprocessed apps)
+    - ./run_iccta_on_droidbench.sh (20-30 min on MACBOOK PRO 2020)
+10 - IccTA results are available in soot-infoflow-android-iccta/logs/
+    - ls soot-infoflow-android-iccta/logs/
+11 - Check the results of an app:
+    - cat soot-infoflow-android-iccta/logs/APP_NAME-iccta.txt
+12 - Pay attention to ICC leaks not detected by IccTA (from getDeviceId() to Log.i())
+13 - Save results:
+    - cp -r soot-infoflow-android-iccta/logs/ soot-infoflow-android-iccta/logs_without_raicc && rm soot-infoflow-android-iccta/logs/*
+14 - Run IccTA on droidbench (preprocessed apps)
+    - ./run_iccta_on_droidbench_after_raicc.sh (20-30 min on MACBOOK PRO 2020)
+15 - Results are in the same location:
+    - cat soot-infoflow-android-iccta/logs/APP_NAME-iccta.txt
+16 - Note that now ICC leaks are detected by IccTA (from getDeviceId() to Log.i())
+17 - Perform the same with amandroid:
+    - ./run_amandroid_on_droidbench.sh (5-10 min on MACBOOK PRO 2020)
+18 - Results are available in amandroid_output:
+    - ls amandroid_output
+19 - Check results of a particular app:
+    - cat amandroid_output/APP_NAME/results/AppData.txt
+20- Pay attention to ICC leaks not detected by Amandroid (from getDeviceId() to Log.i())
+21 - Save amandroid results:
+    - cp -r amandroid_output amandroid_output_without_raicc && rm -rf amandroid_output/*
+22 - Run Amandroid on droidbench (preprocessed apps)
+    - ./run_amandroid_on_droidbench_after_raicc.sh (5-10 min on MACBOOK PRO 2020)
+23 - Results are in the same location:
+    - cat amandroid_output/APP_NAME/results/AppData.txt
+24 - Note that now ICC leaks are detected by Amandroid (from getDeviceId() to Log.i())
+25 - Until now, the results of Table IV of our paper were reproduced and verified.
+
+For reproducing the results of Table VI, one has to run IC3 on Android apps.
+The datasets are available in RAICC/artefacts/hashes/5k_ic3_raicc_benign_section_V_D_1.txt and RAICC/artefacts/hashes/5k_ic3_raicc_malicious_section_V_D_1.txt.
+First, one has to get the apps represented by the hashes in these files.
+We prepared a script that launches IC3 automatically, one just has to retrieve apps and to pass it to the script:
+    - ./launch_ic3.sh -a APP_NAME -p ~/git/android-platforms -d cc
+Results will be available in ic3_output.
+The step by step procedure is described below:
+1 - Download the apks from the dataset files, e.g., benign ones
+2 - For each apk apply IC3 as described above
+3 - Save the results (cp -r ic3_output ic3_output_benign && rm -rf ic3_output/*)
+4 - Apply RAICC on these same apps, as described above
+5 - For each apk preprocessed by RAICC, apply IC3 as described above
+6 - Save the results (cp -r ic3_output ic3_output_benign_after_raicc && rm -rf ic3_output/*)
+7 - Compare the results
+The same procedure can be applied for the malicious dataset.
+
+In the same way, for reproducing result of Table VI, one has to run EPICC an Android apps.
+The datasets are available in RAICC/artefacts/hashes/epicc_benign_1000_section_V_D_3.txt and RAICC/artefacts/hashes/epicc_malicious_1000_section_V_D_3.txt
+First, one has to get the apps represented by the hashes in these files.
+We prepared a script that launches EPICC automatically, one just has to retrieve apps and to pass it to the script:
+    - ./launch_epicc.sh APP_NAME
+Results will be available in epicc_output.
+The step by step procedure is described below:
+1 - Download the apks from the dataset files, e.g., benign apps
+2 - For each apk apply EPICC as described above
+3 - Save the results (cp -r epicc_output epicc_output_benign && rm -rf epicc_output/*)
+4 - Apply RAICC on these same apps, as described above
+5 - For each apk preprocessed by RAICC, apply EPICC as described above
+6 - Save the results (cp -r epicc_output epicc_output_benign_after_raicc && rm -rf epicc_output/*)
+7 - Compare the results
+The same procedure can be applied for the malicious dataset.
+
+Due to space purposes we are not able to share thousands of APKs, therefore we share the SHA-256 of every app used in our study.
+For reproducing our large-scale experiments, one has to downloads the APK from a repository (e.g., AndroZoo) and follow the exact same steps described above.

@@ -1,0 +1,8 @@
+To reproduce our results, no installation is needed since we provide a virtual machine image.
+
+Please follow the step described in Oracle website to import the virtual machine:
+  - https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html
+
+If for some reason, one does not want to use our virtual machine, follow the instructions available at:
+    - https://github.com/lilicoding/soot-infoflow-android-iccta/wiki/Detailed-description-of-IccTA-usage
+    - https://github.com/lilicoding/soot-infoflow-android-iccta/wiki/Configuration%E2%80%93free-usage-of-IccTA
