@@ -44,6 +44,12 @@ Then, try to rebuild.
 java -jar RAICC/target/RAICC-0.1-jar-with-dependencies.jar <i>options</i>
 </pre>
 
+Options:
+
+* ```-a``` : The path to the APK to process.
+* ```-cp``` : The path to Android platofrms folder.
+* ```-model``` : The path to RAICC's COAL models folder.
+
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
