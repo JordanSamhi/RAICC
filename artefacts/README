@@ -80,6 +80,7 @@ Note that this procedure can be applied on any dataset. Hence we describe and se
 25 - Until now, the results of Table IV of our paper were reproduced and verified.
 
 For reproducing the results of Table V, one has to run IC3 on Android apps.
+DISCLAIMER: This can take weeks for the computation, refer to PS section at the end of this README file to run minimal version.
 The datasets are available in RAICC/artefacts/hashes/5k_ic3_raicc_benign_section_V_D_1.txt and RAICC/artefacts/hashes/5k_ic3_raicc_malicious_section_V_D_1.txt.
 First, one has to get the apps represented by the hashes in these files.
 We prepared scripts that downloads an app (from Androzoo with temporary API key) and launches IC3 automatically on the datasets:
@@ -100,6 +101,7 @@ The step by step procedure is described below:
 9 - Compare the results
 
 In the same way, for reproducing result of Table VI, one has to run EPICC an Android apps.
+DISCLAIMER: This can take weeks for the computation, refer to PS section at the end of this README file to run minimal version.
 The datasets are available in RAICC/artefacts/hashes/epicc_benign_1000_section_V_D_3.txt and RAICC/artefacts/hashes/epicc_malicious_1000_section_V_D_3.txt
 First, one has to get the apps represented by the hashes in these files.
 We prepared scripts that downloads an app (from Androzoo with temporary API key) and launches EPICC automatically on the datasets:
@@ -120,7 +122,7 @@ The step by step procedure is described below:
 9 - Compare the results
 
 PS: Since processing thousands of apps is time-consuming, we proving the same scripts as described above for IC3 and EPICC but limited to 100 apps.
-That is to say, when 100 have been processed, the script simple exits.
+That is to say, when 100 have been processed, the scripts simply exit.
 This is valable for the following scripts:
     - ./process_ic3_goodware.sh
     - ./process_ic3_goodware_after_raicc.sh
