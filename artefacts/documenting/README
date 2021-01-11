@@ -2,7 +2,6 @@ The present document describes the artefacts for reproducing RAICC paper.
 
 RAICC is a tool to find Atypical ways to perform ICC in Android applications. 
 
-
 Content:
 
 Our artefacts are made of the source code of RAICC, the datasets used for our studies, third-party tools used and script to facilitate reproducibility.
@@ -12,7 +11,6 @@ If for some reason, one does not want to use our virtual machine, follow the ins
     - https://github.com/lilicoding/soot-infoflow-android-iccta/wiki/Detailed-description-of-IccTA-usage
     - https://github.com/lilicoding/soot-infoflow-android-iccta/wiki/Configuration%E2%80%93free-usage-of-IccTA
 to set up the environment (non-trivial).
-
 
 Obtaining artefacts:
 
@@ -26,7 +24,6 @@ In this repository, there are multiple folders:
       - sources/ contains the source code of every benchmark app of our study
     - hashes/ contains all the datasets of our study
     - tools/ contains raicc executable, third-party executables and our scripts to run our experiments.
-
 
 Reproducing our results:
 
@@ -81,37 +78,44 @@ Note that this procedure can be applied on any dataset. Hence we describe and se
 24 - Note that now ICC leaks are detected by Amandroid (from getDeviceId() to Log.i())
 25 - Until now, the results of Table IV of our paper were reproduced and verified.
 
-For reproducing the results of Table VI, one has to run IC3 on Android apps.
+For reproducing the results of Table V, one has to run IC3 on Android apps.
 The datasets are available in RAICC/artefacts/hashes/5k_ic3_raicc_benign_section_V_D_1.txt and RAICC/artefacts/hashes/5k_ic3_raicc_malicious_section_V_D_1.txt.
 First, one has to get the apps represented by the hashes in these files.
-We prepared a script that launches IC3 automatically, one just has to retrieve apps and to pass it to the script:
-    - ./launch_ic3.sh -a APP_NAME -p ~/git/android-platforms -d cc
+We prepared scripts that downloads an app (from Androzoo with temporary API key) and launches IC3 automatically on the datasets:
+    - ./process_ic3_goodware.sh
+    - ./process_ic3_goodware_after_raicc.sh
+    - ./process_ic3_malware.sh
+    - ./process_ic3_malware_after_raicc.sh
 Results will be available in ic3_output.
 The step by step procedure is described below:
-1 - Download the apks from the dataset files, e.g., benign ones
-2 - For each apk apply IC3 as described above
-3 - Save the results (cp -r ic3_output ic3_output_benign && rm -rf ic3_output/*)
-4 - Apply RAICC on these same apps, as described above
-5 - For each apk preprocessed by RAICC, apply IC3 as described above
+1 - ./process_ic3_goodware.sh (5000 apps)
+2 - Save the results (cp -r ic3_output ic3_output_benign && rm -rf ic3_output/*)
+3 - ./process_ic3_malware.sh (5000 apps)
+4 -  Save the results (cp -r ic3_output ic3_output_malware && rm -rf ic3_output/*)
+5 - ./process_ic3_goodware_after_raicc.sh (5000 apps)
 6 - Save the results (cp -r ic3_output ic3_output_benign_after_raicc && rm -rf ic3_output/*)
-7 - Compare the results
-The same procedure can be applied for the malicious dataset.
+7 - ./process_ic3_malware_after_raicc.sh (5000 apps)
+8 -  Save the results (cp -r ic3_output ic3_output_malware_after_raicc && rm -rf ic3_output/*)
+9 - Compare the results
 
 In the same way, for reproducing result of Table VI, one has to run EPICC an Android apps.
 The datasets are available in RAICC/artefacts/hashes/epicc_benign_1000_section_V_D_3.txt and RAICC/artefacts/hashes/epicc_malicious_1000_section_V_D_3.txt
 First, one has to get the apps represented by the hashes in these files.
-We prepared a script that launches EPICC automatically, one just has to retrieve apps and to pass it to the script:
-    - ./launch_epicc.sh APP_NAME
+We prepared scripts that downloads an app (from Androzoo with temporary API key) and launches EPICC automatically on the datasets:
+    - ./process_epicc_goodware.sh
+    - ./process_epicc_goodware_after_raicc.sh
+    - ./process_epicc_malware.sh
+    - ./process_epicc_malware_after_raicc.sh
 Results will be available in epicc_output.
 The step by step procedure is described below:
-1 - Download the apks from the dataset files, e.g., benign apps
-2 - For each apk apply EPICC as described above
-3 - Save the results (cp -r epicc_output epicc_output_benign && rm -rf epicc_output/*)
-4 - Apply RAICC on these same apps, as described above
-5 - For each apk preprocessed by RAICC, apply EPICC as described above
+1 - ./process_epicc_goodware.sh (1000 apps)
+2 - Save the results (cp -r epicc_output epicc_output_benign && rm -rf epicc_output/*)
+3 - ./process_epicc_malware.sh (1000 apps)
+4 -  Save the results (cp -r epicc_output epicc_output_malware && rm -rf epicc_output/*)
+5 - ./process_epicc_goodware_after_raicc.sh (1000 apps)
 6 - Save the results (cp -r epicc_output epicc_output_benign_after_raicc && rm -rf epicc_output/*)
-7 - Compare the results
-The same procedure can be applied for the malicious dataset.
+7 - ./process_epicc_malware_after_raicc.sh (1000 apps)
+8 -  Save the results (cp -r epicc_output epicc_output_malware_after_raicc && rm -rf epicc_output/*)
+9 - Compare the results
 
 Due to space purposes we are not able to share thousands of APKs, therefore we share the SHA-256 of every app used in our study.
-For reproducing our large-scale experiments, one has to downloads the APK from a repository (e.g., AndroZoo) and follow the exact same steps described above.
