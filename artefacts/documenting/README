@@ -24,7 +24,6 @@ In this repository, there are multiple folders:
       - sources/ contains the source code of every benchmark app of our study
     - hashes/ contains all the datasets of our study
     - tools/ contains raicc executable, third-party executables and our scripts to run our experiments.
-    - documenting contains the file necessary for the documentation of this repository
 
 Reproducing our results:
 
@@ -39,6 +38,7 @@ Note that this procedure can be applied on any dataset. Hence we describe and se
     - vm user: raicc, no password
     - Open a terminal
     - cd /home/raicc/git/RAICC
+    - git pull
 4 - Build RAICC:
     - ./build.sh (30 sec)
 5 - Go to tools folder:
@@ -118,5 +118,26 @@ The step by step procedure is described below:
 7 - ./process_epicc_malware_after_raicc.sh (1000 apps)
 8 -  Save the results (cp -r epicc_output epicc_output_malware_after_raicc && rm -rf epicc_output/*)
 9 - Compare the results
+
+PS: Since processing thousands of apps is time-consuming, we proving the same scripts as described above for IC3 and EPICC but limited to 100 apps.
+That is to say, when 100 have been processed, the script simple exits.
+This is valable for the following scripts:
+    - ./process_ic3_goodware.sh
+    - ./process_ic3_goodware_after_raicc.sh
+    - ./process_ic3_malware.sh
+    - ./process_ic3_malware_after_raicc.sh
+    - ./process_epicc_goodware.sh
+    - ./process_epicc_goodware_after_raicc.sh
+    - ./process_epicc_malware.sh
+    - ./process_epicc_malware_after_raicc.sh
+One just has to append "_limited_to_100" to run on limited number of apps, i.e., the scripts become:
+    - ./process_ic3_goodware_limited_to_100.sh
+    - ./process_ic3_goodware_after_raicc_limited_to_100.sh
+    - ./process_ic3_malware_limited_to_100.sh
+    - ./process_ic3_malware_after_raicc_limited_to_100.sh
+    - ./process_epicc_goodware_limited_to_100.sh
+    - ./process_epicc_goodware_after_raicc_limited_to_100.sh
+    - ./process_epicc_malware_limited_to_100.sh
+    - ./process_epicc_malware_after_raicc_limited_to_100.sh
 
 Due to space purposes we are not able to share thousands of APKs, therefore we share the SHA-256 of every app used in our study.

@@ -119,4 +119,25 @@ The step by step procedure is described below:
 8 -  Save the results (cp -r epicc_output epicc_output_malware_after_raicc && rm -rf epicc_output/*)
 9 - Compare the results
 
+PS: Since processing thousands of apps is time-consuming, we proving the same scripts as described above for IC3 and EPICC but limited to 100 apps.
+That is to say, when 100 have been processed, the script simple exits.
+This is valable for the following scripts:
+    - ./process_ic3_goodware.sh
+    - ./process_ic3_goodware_after_raicc.sh
+    - ./process_ic3_malware.sh
+    - ./process_ic3_malware_after_raicc.sh
+    - ./process_epicc_goodware.sh
+    - ./process_epicc_goodware_after_raicc.sh
+    - ./process_epicc_malware.sh
+    - ./process_epicc_malware_after_raicc.sh
+One just has to append "_limited_to_100" to run on limited number of apps, i.e., the scripts become:
+    - ./process_ic3_goodware_limited_to_100.sh
+    - ./process_ic3_goodware_after_raicc_limited_to_100.sh
+    - ./process_ic3_malware_limited_to_100.sh
+    - ./process_ic3_malware_after_raicc_limited_to_100.sh
+    - ./process_epicc_goodware_limited_to_100.sh
+    - ./process_epicc_goodware_after_raicc_limited_to_100.sh
+    - ./process_epicc_malware_limited_to_100.sh
+    - ./process_epicc_malware_after_raicc_limited_to_100.sh
+
 Due to space purposes we are not able to share thousands of APKs, therefore we share the SHA-256 of every app used in our study.
