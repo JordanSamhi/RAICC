@@ -24,6 +24,7 @@ In this repository, there are multiple folders:
       - sources/ contains the source code of every benchmark app of our study
     - hashes/ contains all the datasets of our study
     - tools/ contains raicc executable, third-party executables and our scripts to run our experiments.
+    - documenting contains the file necessary for the documentation of this repository
 
 Reproducing our results:
 
