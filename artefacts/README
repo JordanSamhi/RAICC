@@ -38,6 +38,7 @@ Note that this procedure can be applied on any dataset. Hence we describe and se
     - vm user: raicc, no password
     - Open a terminal
     - cd /home/raicc/git/RAICC
+    - git pull
 4 - Build RAICC:
     - ./build.sh (30 sec)
 5 - Go to tools folder:
