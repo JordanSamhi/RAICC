@@ -9,4 +9,4 @@ echo "Retargeting $appName"
 echo "Running EPICC"
 
 java -jar epicc.jar -android-directory $retargetedPath/$appBaseName -apk $appName -cp android.jar -icc-study epicc_output >> epicc_output/$appBaseName.txt
-#rm -rf $retargetedPath/$appBaseName
+rm -rf $retargetedPath/$appBaseName
