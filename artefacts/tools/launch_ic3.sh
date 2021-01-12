@@ -40,7 +40,7 @@ fi
 
 print_info "Running IC3"
 before_ic3=$(date +%s)
-java -jar ic3.jar -apk $APP_PATH -cp $ANDROID_JAR -db soot-infoflow-android-iccta/cc.properties -dbname $DBNAME -model ../../src/main/resources/models/ &> $PATH_LOGS/$APP_BASENAME-ic3.txt
+./execute_with_limit_time.sh java -jar ic3.jar -apk $APP_PATH -cp $ANDROID_JAR -db soot-infoflow-android-iccta/cc.properties -dbname $DBNAME -model ../../src/main/resources/models/ &> $PATH_LOGS/$APP_BASENAME-ic3.txt
 after_ic3=$(date +%s)
 time_ic3=$(($after_ic3-$before_ic3))
 echo "IC3 time: $time_ic3">>$PATH_LOGS/$APP_BASENAME-ic3.txt
