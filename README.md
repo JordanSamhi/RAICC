@@ -5,6 +5,8 @@ In this repository, we host the necessary artefacts for reproducing our study.
 
 ## Publication
 
+The paper describing the approach for RAICC is in the proceedings of the 43rd International Conference on Software Engineering (ICSE) 2021.
+
 The preprint of the paper is currently hosted on arXiv website at: https://arxiv.org/abs/2012.09916
 
 ### Abstract
