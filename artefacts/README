@@ -14,7 +14,7 @@ to set up the environment (non-trivial).
 
 Obtaining artefacts:
 
-Our artefacts are made available at: https://github.com/JordanSamhi/RAICC
+Our artefacts are made available at: https://github.com/Trustworthy-Software/RAICC
 In this repository, there are multiple folders:
   - src/main/ contains the source code of RAICC
   - libs/ contains libraries for RAICC to work correctly
@@ -31,7 +31,7 @@ We will describe how to reproduce our results.
 Note that this procedure can be applied on any dataset. Hence we describe and set up the procedure for our droidbench (20 apps). In our work we used huge datasets of several thousands of apps, reproducing it here would take weeks, hence we show how to perform it with our benchmark apps, though the same process can be used for the big datasets.
 
 1 - First, download the repository of RAICC
-    - git clone https://github.com/JordanSamhi/RAICC (1 min)
+    - git clone https://github.com/Trustworthy-Software/RAICC (1 min)
 2 - In this repository, a VM_LOCATION file contains the address for retrieving a virtualbox image in which we prepared the environment of our study.
     - cat artefacts/VM_LOCATION (https://dropit.uni.lu/invitations?share=10a9d3e397a4542ec9e9&dl=0)
 3 - One the VM is running, go to RAICC folder (The VM must have access to the Internet):
