@@ -1,0 +1,24 @@
+Badges claimed: REUSABLE, AVAILABLE, REPLICATED
+
+For the eligibility to Replicated badge, we have to comply with criteria, in the following we explain why and how we comply with the criteria of REUSABLE, AVAILABLE, and REPLICATED badges:
+
+- We provide documentation and step by step procedure to replicate our results, we also provide an inventory of our artefacts.
+- Artefacts are in direct link with our paper since they allow to replicate the main results of the paper,
+- We included easy-to-use and ready-to-use scripts that compile and run our experiments. The execution generate file results in which the the person replicating can check the validity and verify the value in the paper. Furthermore,we provide a virtual machine with a working and ready-to-use environment to successfully execute the programs.
+- We provide a LICENSE file.
+- We provide a REQUIREMENTS file.
+- We provide an INSTALL and a README files that describe the step-by-step procedure to replicate our main results.
+- We indicate the average time needed for each script on specific machine and also provide short version of scripts for which initially the experiments can take up to several weeks of computation (on thousand of apks).
+- Our artefacts are available for public download from a repository without the need to register: 
+  - Github: https://github.com/JordanSamhi/RAICC 
+  - Zenodo: https://zenodo.org/record/4442663
+- Our artefacts are available for public download from a persistent repository with a stable URL:
+  - Zenodo: https://zenodo.org/record/4442663
+- Our artefacts are associated with a Digital Object Identifier (DOI): 10.5281/zenodo.4442663
+- The paper reporting on the replication has been peer-reviewed and is in the proceedings of ICSE 2021 technical track.
+- The original paper being reproduced and potentially awarded the badges is publicly available: https://arxiv.org/pdf/2012.09916.pdf
+- Authorship of the replicated artefacts does not overlapwith the replicating artefact:
+  - Artefacts have been prepare by corresponding authorof the paper (i.e., Jordan Samhi).
+  - Replication has been conducted by Reinhard Leperlier.
+- The abstract clearly outlines WHAT is being replicated, WHY it is important and HOW it has been done. We also explain that the replication is partial since we replicate the main results of the paper and not side results.
+- We believe our submissions lays out substantial evidence on the replication of the paper since it has been replicated by a third-party person and it can be executed easily by any third-party individual.
