@@ -6,7 +6,7 @@
 	<groupId>lu.uni.trux</groupId>
 	<artifactId>RAICC</artifactId>
 	<name>RAICC</name>
-	<version>0.1</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 	<description>RAICC finds atypical ways to perform ICC in Android applications.</description>
 	<properties>
