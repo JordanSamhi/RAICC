@@ -3,5 +3,5 @@ mvn clean install:install-file -Dfile=libs/preprocessIntentSender-0.1.jar -Dgrou
 export MAVEN_OPTS=-Xss32m
 mvn clean install
 echo "RAICC installed"
-cp target/RAICC-0.1-jar-with-dependencies.jar artefacts/tools/raicc.jar
+cp target/RAICC-1.0-jar-with-dependencies.jar artefacts/tools/raicc.jar
 echo "RAICC copied"
