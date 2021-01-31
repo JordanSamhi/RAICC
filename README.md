@@ -3,6 +3,9 @@ Reveal Atypical Inter-Component Communication
 
 In this repository, we host the necessary artefacts for reproducing our study.
 
+[![DOI](https://zenodo.org/badge/254038125.svg)](https://zenodo.org/badge/latestdoi/254038125)
+
+
 ## Publication
 
 The paper describing the approach for RAICC is in the proceedings of the 43rd International Conference on Software Engineering (ICSE) 2021.
