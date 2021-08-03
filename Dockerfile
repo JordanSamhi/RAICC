@@ -35,7 +35,7 @@ RUN update-alternatives --install /usr/bin/java java $JAVA_HOME/bin/java 9999
 
 # Clone RAICC git
 WORKDIR /home/raicc/git
-RUN git clone https://github.com/Trustworthy-Software/RAICC
+RUN git clone https://github.com/JordanSamhi/RAICC
 
 # Build RAICC
 WORKDIR RAICC
