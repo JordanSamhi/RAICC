@@ -5,12 +5,14 @@ In this repository, we host the necessary artefacts for reproducing our study.
 
 [![DOI](https://zenodo.org/badge/254038125.svg)](https://zenodo.org/badge/latestdoi/254038125)
 
+:warning: To reproduce the experiments of the paper, please use version 1.0.
+
 
 ## Publication
 
 The paper describing the approach for RAICC is in the proceedings of the 43rd International Conference on Software Engineering (ICSE) 2021.
 
-The preprint of the paper is currently hosted on arXiv website at: https://arxiv.org/abs/2012.09916
+The paper is available at: https://ieeexplore.ieee.org/document/9402001
 
 ### Abstract
 
