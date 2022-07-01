@@ -60,7 +60,7 @@ public class IFDSProblem extends DefaultJimpleIFDSTabulationProblem<Pair<Value, 
                     DefinitionStmt defnStmt = (DefinitionStmt) src;
                     final Value rightOp = defnStmt.getRightOp();
                     final Value leftOp = defnStmt.getLeftOp();
-                    if (rightOp instanceof Ref && rightOp instanceof Local) {
+                    if (rightOp instanceof Ref || rightOp instanceof Local) {
                         return new FlowFunction<Pair<Value, Pair<Set<String>, Set<Value>>>>() {
                             public Set<Pair<Value, Pair<Set<String>, Set<Value>>>> computeTargets(Pair<Value, Pair<Set<String>, Set<Value>>> source) {
                                 if (source.getO1().equivTo(leftOp)) {
