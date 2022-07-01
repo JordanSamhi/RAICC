@@ -1,4 +1,4 @@
 /target/
 .settings
 *.DS_Store
-experiments
+.idea
