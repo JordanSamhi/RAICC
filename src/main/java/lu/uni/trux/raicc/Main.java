@@ -65,6 +65,8 @@ public class Main {
                 }
             }
 
+            StopWatch initialization = new StopWatch("Initialization");
+            initialization.start("Initialization");
             ProcessManifest pm = null;
             try {
                 pm = new ProcessManifest(CommandLineOptions.v().getApk());
@@ -77,6 +79,7 @@ public class Main {
             Writer.v().pinfo("Initializing Environment");
             initializeSoot();
             Writer.v().psuccess("Done");
+            initialization.stop();
 
             StopWatch propagation = new StopWatch("Propagation");
             propagation.start("Propagation");
@@ -93,6 +96,8 @@ public class Main {
             Writer.v().psuccess("Done");
             instrumentationTime.stop();
 
+            StopWatch writingTime = new StopWatch("Writing");
+            writingTime.start("Writing");
             if (ResultsAccumulator.v().isStatementAdded()) {
                 Writer.v().pinfo(String.format("Writing new apk in: %s", Options.v().output_dir()));
                 PackManager.v().writeOutput();
@@ -100,12 +105,15 @@ public class Main {
             } else {
                 Writer.v().pinfo("No new statement added");
             }
+            writingTime.stop();
 
             analysisTime.stop();
             ResultsAccumulator.v().setAppName(FilenameUtils.getBaseName(CommandLineOptions.v().getApk()));
-            ResultsAccumulator.v().setAnalysisElapsedTime(analysisTime.elapsedTime() / 1000000000);
-            ResultsAccumulator.v().setInstrumentationElapsedTime(instrumentationTime.elapsedTime() / 1000000000);
-            ResultsAccumulator.v().setPropagationElapsedTime(propagation.elapsedTime() / 1000000000);
+            ResultsAccumulator.v().setAnalysisElapsedTime(analysisTime.elapsedTime() / (double) 1000000000);
+            ResultsAccumulator.v().setInstrumentationElapsedTime(instrumentationTime.elapsedTime() / (double) 1000000000);
+            ResultsAccumulator.v().setPropagationElapsedTime(propagation.elapsedTime() / (double) 1000000000);
+            ResultsAccumulator.v().setInitializationElapsedTime(initialization.elapsedTime() / (double) 1000000000);
+            ResultsAccumulator.v().setWritingElapsedTime(writingTime.elapsedTime() / (double) 1000000000);
             if (CommandLineOptions.v().hasRaw()) {
                 ResultsAccumulator.v().printVectorResults();
             } else {
