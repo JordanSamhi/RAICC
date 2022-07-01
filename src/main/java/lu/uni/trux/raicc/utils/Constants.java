@@ -116,10 +116,6 @@ public class Constants {
     public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_2 = "<androidx.core.app.NotificationCompat$Action$Builder: void <init>(int,java.lang.CharSequence,android.app.PendingIntent)>";
     public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_3 = "<androidx.core.app.NotificationCompat$Action$Builder: void <init>(int,java.lang.CharSequence,android.app.PendingIntent,android.os.Bundle,androidx.core.app.RemoteInput[],boolean,int,boolean)>";
     public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION$BUILDER_4 = "<androidx.core.app.NotificationCompat$Action$Builder: void <init>(int,java.lang.CharSequence,android.app.PendingIntent,android.os.Bundle,androidx.core.app.RemoteInput[],boolean,int,boolean,boolean)>";
-    public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION_1 = "<androidx.core.app.NotificationCompat$Action: void <init>(androidx.core.graphics.drawable.IconCompat,java.lang.CharSequence,android.app.PendingIntent,android.os.Bundle,androidx.core.app.RemoteInput[],androidx.core.app.RemoteInput[],boolean,int,boolean,boolean)>";
-    public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION_2 = "<androidx.core.app.NotificationCompat$Action: void <init>(int,java.lang.CharSequence,android.app.PendingIntent)>";
-    public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION_3 = "<androidx.core.app.NotificationCompat$Action: void <init>(int,java.lang.CharSequence,android.app.PendingIntent,android.os.Bundle,androidx.core.app.RemoteInput[],androidx.core.app.RemoteInput[],boolean,int,boolean)>";
-    public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$ACTION_4 = "<androidx.core.app.NotificationCompat$Action: void <init>(int,java.lang.CharSequence,android.app.PendingIntent,android.os.Bundle,androidx.core.app.RemoteInput[],androidx.core.app.RemoteInput[],boolean,int,boolean,boolean)>";
     public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$BUBBLEMETADATA$BUILDER_SETDELETEINTENT = "<androidx.core.app.NotificationCompat$BubbleMetadata$Builder: androidx.core.app.NotificationCompat$BubbleMetadata$Builder setDeleteIntent(android.app.PendingIntent)>";
     public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$BUBBLEMETADATA$BUILDER_SETINTENT = "<androidx.core.app.NotificationCompat$BubbleMetadata$Builder: androidx.core.app.NotificationCompat$BubbleMetadata$Builder setIntent(android.app.PendingIntent)>";
     public static final String ANDROIDX_CORE_APP_NOTIFICATIONCOMPAT$BUBBLEMETADATA_1 = "<androidx.core.app.NotificationCompat$BubbleMetadata: void <init>(android.app.PendingIntent,android.app.PendingIntent,androidx.core.graphics.drawable.IconCompat,int,int,int)>";
@@ -150,21 +146,10 @@ public class Constants {
     public static final String ANDROID_CONTENT_CONTEXT_STARTINTENTSENDER_2 = "<android.content.Context: void startIntentSender(android.content.IntentSender,android.content.Intent,int,int,int,android.os.Bundle)>";
     public static final String ANDROID_APP_ACTIVITY_STARTINTENTSENDERFORRESULT_1 = "<android.app.Activity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int)>";
     public static final String ANDROID_APP_ACTIVITY_STARTINTENTSENDERFORRESULT_2 = "<android.app.Activity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)>";
-    public static final String START_INTENTSENDER_FOR_RESULT_1 = "void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int)";
-    public static final String START_INTENTSENDER_FOR_RESULT_2 = "void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)";
     public static final String ANDROID_APP_ACTIVITY_STARTINTENTSENDERFROMCHILD_1 = "<android.app.Activity: void startIntentSenderFromChild(android.app.Activity,android.content.IntentSender,int,android.content.Intent,int,int,int)>";
     public static final String ANDROID_APP_ACTIVITY_STARTINTENTSENDERFROMCHILD_2 = "<android.app.Activity: void startIntentSenderFromChild(android.app.Activity,android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)>";
     public static final String ANDROID_CONTENT_PM_PACKAGEINSTALLER_UNINSTALL_1 = "<android.content.pm.PackageInstaller: void uninstall(android.content.pm.VersionedPackage,android.content.IntentSender)>";
     public static final String ANDROID_CONTENT_PM_PACKAGEINSTALLER_UNINSTALL_2 = "<android.content.pm.PackageInstaller: void uninstall(java.lang.String,android.content.IntentSender)>";
-    public static final String ANDROID_APP_PENDINGINTENT_SEND_1 = "<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent,android.app.PendingIntent$OnFinished,android.os.Handler,java.lang.String,android.os.Bundle)>";
-    public static final String ANDROID_APP_PENDINGINTENT_SEND_2 = "<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent,android.app.PendingIntent$OnFinished,android.os.Handler,java.lang.String)>";
-    public static final String ANDROID_APP_PENDINGINTENT_SEND_3 = "<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent,android.app.PendingIntent$OnFinished,android.os.Handler)>";
-    public static final String ANDROID_APP_PENDINGINTENT_SEND_4 = "<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent)>";
-    public static final String ANDROID_APP_PENDINGINTENT_SEND_5 = "<android.app.PendingIntent: void send(int,android.content.Intent,android.app.PendingIntent$OnFinished,android.os.Handler)>";
-    public static final String ANDROID_APP_PENDINGINTENT_SEND_6 = "<android.app.PendingIntent: void send()>";
-    public static final String ANDROID_APP_PENDINGINTENT_SEND_7 = "<android.app.PendingIntent: void send(int)>";
-    public static final String ANDROID_CONTENT_INTENTSENDER_SENDINTENT_1 = "<android.content.IntentSender: void sendIntent(android.content.Context,int,android.content.Intent,android.content.IntentSender$OnFinished,android.os.Handler)>";
-    public static final String ANDROID_CONTENT_INTENTSENDER_SENDINTENT_2 = "<android.content.IntentSender: void sendIntent(android.content.Context,int,android.content.Intent,android.content.IntentSender$OnFinished,android.os.Handler,java.lang.String)>";
 
     /**
      * Method subsignatures

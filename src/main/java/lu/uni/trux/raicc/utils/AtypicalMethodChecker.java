@@ -88,9 +88,20 @@ public class AtypicalMethodChecker {
     }
 
     public boolean isForResultMethod(SootMethod sm) {
-        Pair<Boolean, String> v = this.methods.get(sm.getSignature());
-        if (v != null) {
-            return v.getO1();
+        Pair<Boolean, String> pair = this.methods.get(sm.getSignature());
+        if (pair != null) {
+            return pair.getO1();
+        }
+        return false;
+    }
+
+    public boolean isWrapperBase(SootMethod sm) {
+        Pair<Boolean, String> pair = this.methods.get(sm.getSignature());
+        String type;
+        if (pair != null) {
+            type = pair.getO2();
+            String[] split = type.split(":");
+            return split[0].equals("b");
         }
         return false;
     }

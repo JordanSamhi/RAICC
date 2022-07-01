@@ -4,6 +4,7 @@ import lu.uni.trux.raicc.extractors.*;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.Value;
+import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.InvokeExpr;
 
 /*-
@@ -56,6 +57,14 @@ public class Utils {
         wle = new WrapperLocalExtractorParam2(wle);
         wle = new WrapperLocalExtractorParam3(wle);
         wle = new WrapperLocalExtractorParam4(wle);
-        return wle.extractWrapperLocal(ie);
+        if (AtypicalMethodChecker.v().isWrapperBase(ie.getMethod())) {
+            if (ie instanceof InstanceInvokeExpr) {
+                InstanceInvokeExpr iie = (InstanceInvokeExpr) ie;
+                return iie.getBase();
+            }
+        } else {
+            return wle.extractWrapperLocal(ie);
+        }
+        return null;
     }
 }

@@ -12,6 +12,7 @@ import soot.*;
 import soot.jimple.InvokeExpr;
 import soot.jimple.Stmt;
 import soot.toolkits.scalar.Pair;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,36 +74,38 @@ public class Instrumenter {
                                 ie = stmt.getInvokeExpr();
                                 if (AtypicalMethodChecker.v().isAtypicalMethod(ie.getMethod())) {
                                     Value v = Utils.getIntentWrapper(ie);
-                                    Set<Pair<Set<String>, Set<Value>>> result = problem.getResults(v, u);
-                                    for (Pair<Set<String>, Set<Value>> p : result) {
-                                        Set<String> componentTypes = p.getO1();
-                                        Set<Value> intents = p.getO2();
-                                        List<Unit> unitsToAdd = null;
-                                        for (String componentType : componentTypes) {
-                                            for (Value intent : intents) {
-                                                if (intent instanceof Local) {
-                                                    Local intentLocal = (Local) intent;
-                                                    switch (componentType) {
-                                                        case Constants.ACTIVITY:
-                                                            if (AtypicalMethodChecker.v().isForResultMethod(sm)) {
-                                                                Writer.v().pinfo("Adding startActivityForResult statement.");
-                                                                unitsToAdd = AtypicalIccMethodsFactory.v().generateStartActivityForResult(sm, intentLocal);
-                                                            } else {
-                                                                Writer.v().pinfo("Adding startActivity statement.");
-                                                                unitsToAdd = AtypicalIccMethodsFactory.v().generateStartActivity(sm, intentLocal);
-                                                            }
-                                                            break;
-                                                        case Constants.BROADCASTRECEIVER:
-                                                            Writer.v().pinfo("Adding sendBroadcast statement.");
-                                                            unitsToAdd = AtypicalIccMethodsFactory.v().generateSendBroadcast(sm, intentLocal);
-                                                            break;
-                                                        case Constants.SERVICE:
-                                                            Writer.v().pinfo("Adding startService statement.");
-                                                            unitsToAdd = AtypicalIccMethodsFactory.v().generateStartService(sm, intentLocal);
-                                                            break;
-                                                    }
-                                                    if (unitsToAdd != null && !unitsToAdd.isEmpty()) {
-                                                        targetToToInsert.put(u, unitsToAdd);
+                                    if (v != null) {
+                                        Set<Pair<Set<String>, Set<Value>>> result = problem.getResults(v, u);
+                                        for (Pair<Set<String>, Set<Value>> p : result) {
+                                            Set<String> componentTypes = p.getO1();
+                                            Set<Value> intents = p.getO2();
+                                            List<Unit> unitsToAdd = null;
+                                            for (String componentType : componentTypes) {
+                                                for (Value intent : intents) {
+                                                    if (intent instanceof Local) {
+                                                        Local intentLocal = (Local) intent;
+                                                        switch (componentType) {
+                                                            case Constants.ACTIVITY:
+                                                                if (AtypicalMethodChecker.v().isForResultMethod(sm)) {
+                                                                    Writer.v().pinfo("Adding startActivityForResult statement.");
+                                                                    unitsToAdd = AtypicalIccMethodsFactory.v().generateStartActivityForResult(sm, intentLocal);
+                                                                } else {
+                                                                    Writer.v().pinfo("Adding startActivity statement.");
+                                                                    unitsToAdd = AtypicalIccMethodsFactory.v().generateStartActivity(sm, intentLocal);
+                                                                }
+                                                                break;
+                                                            case Constants.BROADCASTRECEIVER:
+                                                                Writer.v().pinfo("Adding sendBroadcast statement.");
+                                                                unitsToAdd = AtypicalIccMethodsFactory.v().generateSendBroadcast(sm, intentLocal);
+                                                                break;
+                                                            case Constants.SERVICE:
+                                                                Writer.v().pinfo("Adding startService statement.");
+                                                                unitsToAdd = AtypicalIccMethodsFactory.v().generateStartService(sm, intentLocal);
+                                                                break;
+                                                        }
+                                                        if (unitsToAdd != null && !unitsToAdd.isEmpty()) {
+                                                            targetToToInsert.put(u, unitsToAdd);
+                                                        }
                                                     }
                                                 }
                                             }
