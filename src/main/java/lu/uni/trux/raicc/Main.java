@@ -93,9 +93,13 @@ public class Main {
             Writer.v().psuccess("Done");
             instrumentationTime.stop();
 
-            Writer.v().pinfo(String.format("Writing new apk in: %s", Options.v().output_dir()));
-            PackManager.v().writeOutput();
-            Writer.v().psuccess("Done");
+            if (ResultsAccumulator.v().isStatementAdded()) {
+                Writer.v().pinfo(String.format("Writing new apk in: %s", Options.v().output_dir()));
+                PackManager.v().writeOutput();
+                Writer.v().psuccess("Done");
+            } else {
+                Writer.v().pinfo("No new statement added");
+            }
 
             analysisTime.stop();
             ResultsAccumulator.v().setAppName(FilenameUtils.getBaseName(CommandLineOptions.v().getApk()));

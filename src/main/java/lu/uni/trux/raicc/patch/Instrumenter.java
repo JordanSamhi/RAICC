@@ -1,5 +1,6 @@
 package lu.uni.trux.raicc.patch;
 
+import lu.uni.trux.raicc.ResultsAccumulator;
 import lu.uni.trux.raicc.factories.AtypicalIccMethodsFactory;
 import lu.uni.trux.raicc.libs.LibrariesManager;
 import lu.uni.trux.raicc.propagation.IFDSProblem;
@@ -113,6 +114,7 @@ public class Instrumenter {
                         for (Map.Entry<Unit, List<Unit>> entry : targetToToInsert.entrySet()) {
                             b.getUnits().insertAfter(entry.getValue(), entry.getKey());
                             b.validate();
+                            ResultsAccumulator.v().setStatementAdded(true);
                         }
                     }
                 }

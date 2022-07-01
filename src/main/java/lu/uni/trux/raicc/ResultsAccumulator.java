@@ -35,12 +35,23 @@ public class ResultsAccumulator {
     private long propagationElapsedTime;
     private boolean reachedTimeout;
 
+    public boolean isStatementAdded() {
+        return statementAdded;
+    }
+
+    public void setStatementAdded(boolean statementAdded) {
+        this.statementAdded = statementAdded;
+    }
+
+    private boolean statementAdded;
+
     private ResultsAccumulator() {
         this.setAppName("");
         this.setAnalysisElapsedTime(0);
         this.setInstrumentationElapsedTime(0);
         this.setPropagationElapsedTime(0);
         this.setReachedTimeout(false);
+        this.setStatementAdded(false);
     }
 
     public static ResultsAccumulator v() {
