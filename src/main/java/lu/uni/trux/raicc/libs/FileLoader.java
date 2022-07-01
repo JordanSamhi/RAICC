@@ -10,9 +10,9 @@ import java.util.Set;
 /*-
  * #%L
  * RAICC
- * 
+ *
  * %%
- * Copyright (C) 2020 Jordan Samhi
+ * Copyright (C) 2022 Jordan Samhi
  * University of Luxembourg - Interdisciplinary Centre for
  * Security Reliability and Trust (SnT) - TruX - All rights reserved
  *
@@ -21,12 +21,12 @@ import java.util.Set;
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 2.1 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-2.1.html>.
@@ -34,37 +34,30 @@ import java.util.Set;
  */
 
 public abstract class FileLoader {
-	protected Set<String> items;
+    protected Set<String> items;
 
-	protected FileLoader () {
-		this.items = this.loadFile(this.getFile());
-	}
-	
-	protected abstract String getFile();
-	
-	public boolean contains(String s) {
-		if(this.items.contains(s)) {
-			return true;
-		}
-		return false;
-	}
-	
-	private Set<String> loadFile(String file) {
-		InputStream fis = null;
-		BufferedReader br = null;
-		String line = null;
-		Set<String> set = new HashSet<String>();
-		try {
-			fis = this.getClass().getResourceAsStream(file);
-			br = new BufferedReader(new InputStreamReader(fis));
-			while ((line = br.readLine()) != null)   {
-				set.add(line);
-			}
-			br.close();
-			fis.close();
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		}
-		return set;
-	}
+    protected FileLoader() {
+        this.items = this.loadFile(this.getFile());
+    }
+
+    protected abstract String getFile();
+
+    private Set<String> loadFile(String file) {
+        InputStream fis;
+        BufferedReader br;
+        String line;
+        Set<String> set = new HashSet<>();
+        try {
+            fis = this.getClass().getResourceAsStream(file);
+            br = new BufferedReader(new InputStreamReader(fis));
+            while ((line = br.readLine()) != null) {
+                set.add(line);
+            }
+            br.close();
+            fis.close();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return set;
+    }
 }

@@ -6,9 +6,9 @@ import soot.jimple.InvokeExpr;
 /*-
  * #%L
  * RAICC
- * 
+ *
  * %%
- * Copyright (C) 2020 Jordan Samhi
+ * Copyright (C) 2022 Jordan Samhi
  * University of Luxembourg - Interdisciplinary Centre for
  * Security Reliability and Trust (SnT) - TruX - All rights reserved
  *
@@ -17,12 +17,12 @@ import soot.jimple.InvokeExpr;
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 2.1 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-2.1.html>.
@@ -30,5 +30,5 @@ import soot.jimple.InvokeExpr;
  */
 
 public interface WrapperLocalExtractor {
-	public Value extractWrapperLocal(InvokeExpr inv);
+    Value extractWrapperLocal(InvokeExpr inv);
 }

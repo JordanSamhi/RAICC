@@ -1,13 +1,11 @@
 package lu.uni.trux.raicc.extractors;
 
-import lu.uni.trux.raicc.utils.Constants;
-
 /*-
  * #%L
  * RAICC
  * 
  * %%
- * Copyright (C) 2020 Jordan Samhi
+ * Copyright (C) 2022 Jordan Samhi
  * University of Luxembourg - Interdisciplinary Centre for
  * Security Reliability and Trust (SnT) - TruX - All rights reserved
  *
@@ -27,6 +25,8 @@ import lu.uni.trux.raicc.utils.Constants;
  * <http://www.gnu.org/licenses/lgpl-2.1.html>.
  * #L%
  */
+
+import lu.uni.trux.raicc.utils.Constants;
 
 public class WrapperLocalExtractorParam4 extends WrapperLocalExtractorImpl {
 

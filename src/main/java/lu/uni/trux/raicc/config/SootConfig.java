@@ -1,7 +1,10 @@
-package lu.uni.trux.raicc.libs;
+package lu.uni.trux.raicc.config;
 
+import lu.uni.trux.raicc.utils.CommandLineOptions;
 import lu.uni.trux.raicc.utils.Constants;
-import soot.SootClass;
+import soot.jimple.infoflow.InfoflowConfiguration;
+import soot.jimple.infoflow.config.IInfoflowConfig;
+import soot.options.Options;
 
 /*-
  * #%L
@@ -29,32 +32,16 @@ import soot.SootClass;
  * #L%
  */
 
-public class LibrariesManager extends FileLoader {
+public class SootConfig implements IInfoflowConfig {
 
-    private static LibrariesManager instance;
-
-    private LibrariesManager() {
-        super();
-    }
-
-    public static LibrariesManager v() {
-        if (instance == null) {
-            instance = new LibrariesManager();
-        }
-        return instance;
-    }
-
-    @Override
-    protected String getFile() {
-        return Constants.LIBRARIES_FILE;
-    }
-
-    public boolean isLibrary(SootClass sc) {
-        for (String s : this.items) {
-            if (sc.getName().startsWith(s)) {
-                return true;
-            }
-        }
-        return false;
+    public void setSootOptions(Options options, InfoflowConfiguration config) {
+        Options.v().set_process_multiple_dex(true);
+        Options.v().set_allow_phantom_refs(true);
+        Options.v().set_whole_program(true);
+        Options.v().setPhaseOption("cg", "enabled:true");
+        Options.v().set_output_format(Options.output_format_dex);
+        Options.v().set_output_dir(CommandLineOptions.v().hasOutput() ? CommandLineOptions.v().getOutput() : Constants.TARGET_TMP_DIR);
+        Options.v().set_force_overwrite(true);
+        config.setCallgraphAlgorithm(InfoflowConfiguration.CallgraphAlgorithm.SPARK);
     }
 }
