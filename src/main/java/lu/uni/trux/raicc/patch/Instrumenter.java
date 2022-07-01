@@ -62,6 +62,7 @@ public class Instrumenter {
         Stmt stmt;
         InvokeExpr ie;
         Map<Unit, List<Unit>> targetToToInsert;
+        SootMethod callee;
         for (SootClass sc : Scene.v().getApplicationClasses()) {
             if (!Utils.isSystemClass(sc) && !LibrariesManager.v().isLibrary(sc)) {
                 for (SootMethod sm : sc.getMethods()) {
@@ -72,6 +73,7 @@ public class Instrumenter {
                             stmt = (Stmt) u;
                             if (stmt.containsInvokeExpr()) {
                                 ie = stmt.getInvokeExpr();
+                                callee = ie.getMethod();
                                 if (AtypicalMethodChecker.v().isAtypicalMethod(ie.getMethod())) {
                                     Value v = Utils.getIntentWrapper(ie);
                                     if (v != null) {
@@ -86,7 +88,7 @@ public class Instrumenter {
                                                         Local intentLocal = (Local) intent;
                                                         switch (componentType) {
                                                             case Constants.ACTIVITY:
-                                                                if (AtypicalMethodChecker.v().isForResultMethod(sm)) {
+                                                                if (AtypicalMethodChecker.v().isForResultMethod(callee)) {
                                                                     Writer.v().pinfo("Adding startActivityForResult statement.");
                                                                     unitsToAdd = AtypicalIccMethodsFactory.v().generateStartActivityForResult(sm, intentLocal);
                                                                 } else {

@@ -171,9 +171,26 @@ public class IFDSProblem extends DefaultJimpleIFDSTabulationProblem<Pair<Value, 
                                     }
                                 }
                             };
+                        } else if (Utils.isIntentSenderCreationMethod(callee)) {
+                            if (ie instanceof InstanceInvokeExpr) {
+                                InstanceInvokeExpr iie = (InstanceInvokeExpr) ie;
+                                Value base = iie.getBase();
+                                return new FlowFunction<Pair<Value, Pair<Set<String>, Set<Value>>>>() {
+                                    public Set<Pair<Value, Pair<Set<String>, Set<Value>>>> computeTargets(Pair<Value, Pair<Set<String>, Set<Value>>> source) {
+                                        if (source.getO1().equivTo(leftOp)) {
+                                            return Collections.emptySet();
+                                        } else if (source.getO1().equivTo(base)) {
+                                            Set<Pair<Value, Pair<Set<String>, Set<Value>>>> res = new LinkedHashSet<>();
+                                            res.add(new Pair<>(leftOp, source.getO2()));
+                                            res.add(source);
+                                            return res;
+                                        } else {
+                                            return Collections.singleton(source);
+                                        }
+                                    }
+                                };
+                            }
                         }
-                    } else {
-                        return Identity.v();
                     }
                 }
                 return Identity.v();

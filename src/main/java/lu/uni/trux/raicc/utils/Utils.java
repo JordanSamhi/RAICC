@@ -35,12 +35,18 @@ import soot.jimple.InvokeExpr;
 
 public class Utils {
 
-    public static boolean isPendingIntentCreationMethod(SootMethod m) {
-        String sig = m.getSignature();
+    public static boolean isPendingIntentCreationMethod(SootMethod sm) {
+        String sig = sm.getSignature();
         return sig.equals(Constants.ANDROID_APP_PENDING_INTENT_GET_ACTIVITY) ||
                 sig.equals(Constants.ANDROID_APP_PENDING_INTENT_GET_BROADCAST) ||
                 sig.equals(Constants.ANDROID_APP_PENDING_INTENT_GET_SERVICE) ||
                 sig.equals(Constants.ANDROID_APP_PENDING_INTENT_GET_ACTIVITY_BUNDLE);
+    }
+
+    public static boolean isIntentSenderCreationMethod(SootMethod sm) {
+        String sig = sm.getSignature();
+        return sig.equals(Constants.ANDROID_APP_PENDING_INTENT_GET_INTENTSENDER) ||
+                sig.equals(Constants.ANDROID_APP_PENDING_INTENT_GET_INTENTSENDER_PI);
     }
 
     public static boolean isSystemClass(SootClass clazz) {
