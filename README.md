@@ -30,32 +30,22 @@ git clone https://github.com/JordanSamhi/RAICC.git
 
 <pre>
 cd RAICC
-mvn clean install:install-file -Dfile=libs/ic3-0.2.1-full.jar -DgroupId=edu.psu.cse.siis -DartifactId=ic3 -Dversion=0.2.1 -Dpackaging=jar
-mvn clean install:install-file -Dfile=libs/preprocessIntentSender-0.1.jar -DgroupId=lu.uni.trux -DartifactId=preprocessIntentSender -Dversion=0.1 -Dpackaging=jar
-mvn clean install
+sh build.sh
 </pre>
-
-### Issues
-
-If you stumble upon a stack overflow error while building RAICC, increase memory available with this command:
-
-<pre>
-export MAVEN_OPTS=-Xss32m
-</pre>
-
-Then, try to rebuild.
 
 ### Using the tool
 
 <pre>
-java -jar RAICC/target/RAICC-0.1-jar-with-dependencies.jar <i>options</i>
+java -jar RAICC/target/RAICC-2.0-jar-with-dependencies.jar <i>options</i>
 </pre>
 
 Options:
 
 * ```-a``` : The path to the APK to process.
-* ```-cp``` : The path to Android platofrms folder.
-* ```-model``` : The path to RAICC's COAL models folder.
+* ```-p``` : The path to Android platofrms folder.
+* ```-o``` : Sets the output folder.
+* ```-r``` : Prints raw results.
+* ```-to``` : Sets the timeout.
 
 ## Built With
 
