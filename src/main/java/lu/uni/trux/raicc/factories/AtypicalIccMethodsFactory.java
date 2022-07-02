@@ -1,25 +1,11 @@
 package lu.uni.trux.raicc.factories;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import lu.uni.trux.raicc.utils.Constants;
-import soot.Body;
-import soot.Local;
-import soot.Scene;
-import soot.SootMethod;
-import soot.SootMethodRef;
-import soot.Unit;
-import soot.Value;
-import soot.jimple.IntConstant;
-import soot.jimple.Jimple;
-
 /*-
  * #%L
  * RAICC
  * 
  * %%
- * Copyright (C) 2020 Jordan Samhi
+ * Copyright (C) 2022 Jordan Samhi
  * University of Luxembourg - Interdisciplinary Centre for
  * Security Reliability and Trust (SnT) - TruX - All rights reserved
  *
@@ -40,26 +26,34 @@ import soot.jimple.Jimple;
  * #L%
  */
 
-public class DirectIccMethodsFactory {
+import lu.uni.trux.raicc.utils.Constants;
+import soot.*;
+import soot.jimple.IntConstant;
+import soot.jimple.Jimple;
 
-	private static DirectIccMethodsFactory instance;
+import java.util.ArrayList;
+import java.util.List;
 
-	private DirectIccMethodsFactory() {}
+public class AtypicalIccMethodsFactory {
 
-	public static DirectIccMethodsFactory v() {
+	private static AtypicalIccMethodsFactory instance;
+
+	private AtypicalIccMethodsFactory() {}
+
+	public static AtypicalIccMethodsFactory v() {
 		if(instance == null) {
-			instance = new DirectIccMethodsFactory();
+			instance = new AtypicalIccMethodsFactory();
 		}
 		return instance;
 	}
 
-	private List<Unit> generateGenericInvokeStmt(SootMethod m, Local intent ,String methodSig, boolean forResult){
-		List<Unit> unitsToAdd = new ArrayList<Unit>();
+	private List<Unit> generateGenericInvokeStmt(SootMethod m, Local intent , String methodSig, boolean forResult){
+		List<Unit> unitsToAdd = new ArrayList<>();
 		if(m.hasActiveBody()) {
 			Body b = m.retrieveActiveBody();
 			Local thisLocal = b.getThisLocal();
 			SootMethodRef methodRef= this.getMethodRef(forResult ? Constants.ANDROID_APP_ACTIVITY:Constants.ANDROID_CONTENT_CONTEXT, methodSig);
-			List<Value> params = new ArrayList<Value>();
+			List<Value> params = new ArrayList<>();
 			params.add(intent);
 			if(forResult) {
 				params.add(IntConstant.v(0));

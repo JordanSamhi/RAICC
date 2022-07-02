@@ -1,25 +1,11 @@
 package lu.uni.trux.raicc.utils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.javatuples.Pair;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import lu.uni.trux.raicc.exceptions.MethodNotFoundException;
-import soot.SootMethod;
-
 /*-
  * #%L
  * RAICC
- * 
+ *
  * %%
- * Copyright (C) 2020 Jordan Samhi
+ * Copyright (C) 2022 Jordan Samhi
  * University of Luxembourg - Interdisciplinary Centre for
  * Security Reliability and Trust (SnT) - TruX - All rights reserved
  *
@@ -28,133 +14,95 @@ import soot.SootMethod;
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 2.1 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-2.1.html>.
  * #L%
  */
 
+import soot.SootMethod;
+import soot.toolkits.scalar.Pair;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+
 public class AtypicalMethodChecker {
 
-	private static AtypicalMethodChecker instance;
-	protected Logger logger = LoggerFactory.getLogger(Utils.class);
-	private Map<String, Pair<Boolean, String>> methods;	
+    private static AtypicalMethodChecker instance;
+    private final Map<String, Pair<Boolean, String>> methods;
 
-	private AtypicalMethodChecker() {
-		this.methods = new HashMap<String, Pair<Boolean,String>>();
-		this.loadMethods();
-	}
+    private AtypicalMethodChecker() {
+        this.methods = new HashMap<>();
+        this.loadMethods();
+    }
 
-	public static AtypicalMethodChecker v() {
-		if(instance == null) {
-			instance = new AtypicalMethodChecker();
-		}
-		return instance;
-	}
+    public static AtypicalMethodChecker v() {
+        if (instance == null) {
+            instance = new AtypicalMethodChecker();
+        }
+        return instance;
+    }
 
-	private void loadMethods() {
-		InputStream fis = null;
-		BufferedReader br = null;
-		String line = null;
-		try {
-			fis = Utils.class.getResourceAsStream(Constants.ATYPICAL_ICC_METHODS);
-			br = new BufferedReader(new InputStreamReader(fis));
-			String method = null;
-			boolean forResult = false;
-			String type = null;
-			Pair<Boolean, String> v = null;
-			while ((line = br.readLine()) != null)   {
-				String[] split = line.split("\\|");
-				method = split[0];
-				forResult = split[1].equals("1") ? true:false;
-				type = split[2];
-				v = new Pair<Boolean, String>(forResult, type);
-				this.methods.put(method, v);
-			}
-		} catch (IOException e) {
-			logger.error(e.getMessage());
-		}
-		try {
-			br.close();
-			fis.close();
-		} catch (IOException e) {
-			logger.error(e.getMessage());
-		}
-	}
+    private void loadMethods() {
+        InputStream fis = null;
+        BufferedReader br = null;
+        String line;
+        try {
+            fis = Utils.class.getResourceAsStream(Constants.ATYPICAL_ICC_METHODS);
+            br = new BufferedReader(new InputStreamReader(fis));
+            String method;
+            boolean forResult;
+            String type;
+            Pair<Boolean, String> v;
+            while ((line = br.readLine()) != null) {
+                String[] split = line.split("\\|");
+                method = split[0];
+                forResult = split[1].equals("1");
+                type = split[2];
+                v = new Pair<>(forResult, type);
+                this.methods.put(method, v);
+            }
+        } catch (IOException e) {
+            Writer.v().perror(e.getMessage());
+        }
+        try {
+            br.close();
+            fis.close();
+        } catch (IOException e) {
+            Writer.v().perror(e.getMessage());
+        }
+    }
 
-	public boolean isAtypicalMethod(String m) {
-		//TODO fix that
-		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
-				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
-			return true;
-		}
-		return this.methods.containsKey(m);
-	}
+    public boolean isAtypicalMethod(SootMethod sm) {
+        return this.methods.containsKey(sm.getSignature());
+    }
 
-	public boolean isAtypicalMethod(SootMethod m) {
-		return this.isAtypicalMethod(m.getSignature());
-	}
+    public boolean isForResultMethod(SootMethod sm) {
+        Pair<Boolean, String> pair = this.methods.get(sm.getSignature());
+        if (pair != null) {
+            return pair.getO1();
+        }
+        return false;
+    }
 
-	public boolean isForResultMethod(String m) throws MethodNotFoundException {
-		this.checkMethodExistence(m);
-		//TODO fix that
-		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
-				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
-			return true;
-		}
-		Pair<Boolean, String> v = this.methods.get(m);
-		return v.getValue0();
-	}
-
-	public boolean isForResultMethod(SootMethod m) throws MethodNotFoundException {
-		return this.isForResultMethod(m.getSignature());
-	}
-
-	public boolean isWrapperBase(String m) throws MethodNotFoundException {
-		this.checkMethodExistence(m);
-		//TODO fix that
-		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
-				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
-			return false;
-		}
-		Pair<Boolean, String> v = this.methods.get(m);
-		return v.getValue1().split(":")[0].equals("b");
-	}
-
-	public boolean isWrapperBase(SootMethod m) throws MethodNotFoundException {
-		return this.isWrapperBase(m.getSignature());
-	}
-
-	public boolean isWrapperParameter(String m) throws MethodNotFoundException {
-		this.checkMethodExistence(m);
-		//TODO fix that
-		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
-				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
-			return true;
-		}
-		Pair<Boolean, String> v = this.methods.get(m);
-		return v.getValue1().split(":")[0].equals("p");
-	}
-
-	public boolean isWrapperParameter(SootMethod m) throws MethodNotFoundException {
-		return this.isWrapperParameter(m.getSignature());
-	}
-
-	private void checkMethodExistence(String m) throws MethodNotFoundException {
-		//TODO fix that
-		if(m.contains(Constants.START_INTENTSENDER_FOR_RESULT_1)
-				|| m.contains(Constants.START_INTENTSENDER_FOR_RESULT_2)) {
-			return;
-		}
-		Pair<Boolean, String> v = this.methods.get(m);
-		if(v == null) {
-			throw new MethodNotFoundException(String.format("Method not found in list of atypical methods: %s", m));
-		}
-	}
+    public boolean isWrapperBase(SootMethod sm) {
+        Pair<Boolean, String> pair = this.methods.get(sm.getSignature());
+        String type;
+        if (pair != null) {
+            type = pair.getO2();
+            String[] split = type.split(":");
+            return split[0].equals("b");
+        }
+        return false;
+    }
 }
